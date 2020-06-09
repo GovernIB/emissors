@@ -137,6 +137,8 @@ public class XmlManager<T> {
 
     private ByteArrayOutputStream marshalToByteArrayOutputStream(T item, boolean jaxbFormattedOutput, boolean jaxbFragment) throws JAXBException {
 
+        if (item==null) return null;
+        
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
 
         Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
@@ -168,6 +170,8 @@ public class XmlManager<T> {
     
     private T unmarshal(InputStream is) throws JAXBException {
 
+        if (is==null) return null;
+        
        Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
        return jaxbUnmarshaller.unmarshal(new StreamSource(is), clazz).getValue();
        
@@ -176,6 +180,8 @@ public class XmlManager<T> {
     
     private T unmarshal(String xml) throws JAXBException {
 
+       if (xml==null) return null;
+        
        Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
        return jaxbUnmarshaller.unmarshal(new StreamSource(new StringReader(xml)), clazz).getValue();
        
@@ -187,6 +193,8 @@ public class XmlManager<T> {
     
     
     public Element generateElement(T item, boolean withXmlns) throws JAXBException, ParserConfigurationException{
+        
+        if (item==null) return null;
         
         String xml = generateXmlString(item);
         
@@ -226,6 +234,8 @@ public class XmlManager<T> {
     
     public DataHandler generateXml(T item) throws JAXBException {
 
+        if (item==null) return null;
+        
         byte[] b = marshalToByteArrayOutputStream(item).toByteArray();
         String mimetype = "application/xml";
         DataSource ds = new ByteArrayDataSource(b, mimetype);
@@ -235,6 +245,8 @@ public class XmlManager<T> {
 
     public DataHandler generateXml(List<T> items) throws JAXBException {
 
+        if (items==null) return null;
+        
         byte[] b = generateXmlString(items).getBytes();
         String mimetype = "text/plain";
         DataSource ds = new ByteArrayDataSource(b, mimetype);
@@ -244,6 +256,8 @@ public class XmlManager<T> {
 
     public DataHandler generateFlatXml(List<T> items) throws JAXBException {
 
+        if (items==null) return null;
+        
         byte[] b = generateFlatXmlString(items).getBytes();
         String mimetype = "text/plain";
         DataSource ds = new ByteArrayDataSource(b, mimetype);
@@ -252,6 +266,9 @@ public class XmlManager<T> {
     }
 
     public T generateItem(DataHandler document) throws JAXBException, IOException {
+        
+        if (document==null) return null;
+        
         return unmarshal(document.getInputStream());
     }
     
@@ -268,6 +285,8 @@ public class XmlManager<T> {
     }
     
     public T generateItem(Element element, boolean noCheckXmlns) throws JAXBException, IOException{
+        
+        if (element==null) return null;
         
         if (noCheckXmlns) return serializeElementAndGenerateItem(element);
         
@@ -294,6 +313,9 @@ public class XmlManager<T> {
     }
     
     private T serializeElementAndGenerateItem(Element element) throws JAXBException, IOException{
+        
+        if (element==null) return null;
+        
         String xml = "";
         try {
             xml = elementToString(element);
@@ -307,18 +329,24 @@ public class XmlManager<T> {
 
     public byte[] generateXmlByteArray(T item) throws JAXBException {
 
+        if (item==null) return new byte[]{};
+        
         return marshalToByteArrayOutputStream(item).toByteArray();
 
     }
 
     public String generateFlatXmlString(T item) throws JAXBException {
+        
+        if (item==null) return null;
 
-        return XmlManager.this.marshalToByteArrayOutputStream(item, Boolean.FALSE, Boolean.TRUE).toString();
+        return marshalToByteArrayOutputStream(item, Boolean.FALSE, Boolean.TRUE).toString();
 
     }
 
     public String generateFlatXmlString(List<T> items) throws JAXBException {
 
+        if (items==null) return null;
+        
         StringBuilder mensajes = new StringBuilder();
         for (T item : items) {
             mensajes.append(generateFlatXmlString(item));
@@ -329,12 +357,14 @@ public class XmlManager<T> {
     }
 
     public String generateXmlString(T item) throws JAXBException {
-
+      
         return generateXmlString(item, Boolean.TRUE, Boolean.TRUE);
 
     }
     
     public String generateXmlString(T item, boolean jaxbFormattedOutput, boolean jaxbFragment) throws JAXBException {
+        
+        if (item==null) return null;
 
         return marshalToByteArrayOutputStream(item, jaxbFormattedOutput, jaxbFragment).toString();
 
@@ -343,6 +373,8 @@ public class XmlManager<T> {
 
     public String generateXmlString(List<T> items) throws JAXBException {
 
+        if (items==null) return null;
+        
         StringBuilder mensajes = new StringBuilder();
         for (T item : items) {
             mensajes.append(generateXmlString(item));
