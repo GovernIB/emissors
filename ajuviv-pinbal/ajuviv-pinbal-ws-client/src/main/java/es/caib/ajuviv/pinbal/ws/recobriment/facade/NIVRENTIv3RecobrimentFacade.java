@@ -20,12 +20,15 @@ import es.caib.pinbal.ws.recobriment.TipoDocumentacion;
 import es.caib.scsp.pinbal.ws.recobriment.facade.RecobrimentFacade;
 import es.caib.scsp.pinbal.ws.recobriment.facade.RespuestaClientAdapter;
 import es.caib.ajuviv.pinbal.ws.recobriment.datosespecificos.NIVRENTIv3PeticionDatosEspecificos;
+import es.caib.ajuviv.pinbal.ws.recobriment.datosespecificos.NIVRENTIv3PeticionDatosEspecificos;
+import es.caib.ajuviv.pinbal.ws.recobriment.datosespecificos.NIVRENTIv3RespuestaDatosEspecificos;
 import es.caib.ajuviv.pinbal.ws.recobriment.datosespecificos.NIVRENTIv3RespuestaDatosEspecificos;
 import es.caib.scsp.utils.xml.XmlManager;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.xml.bind.JAXBException;
+import javax.xml.bind.annotation.XmlSchema;
 import javax.xml.parsers.ParserConfigurationException;
 import org.w3c.dom.Element;
 
@@ -37,6 +40,10 @@ public class NIVRENTIv3RecobrimentFacade
         extends RecobrimentFacade<
         NIVRENTIv3PeticionDatosEspecificos, NIVRENTIv3RespuestaDatosEspecificos> {
 
+    
+     
+    
+    
     public NIVRENTIv3RecobrimentFacade(String app) {
         super(app);
     }
@@ -52,14 +59,22 @@ public class NIVRENTIv3RecobrimentFacade
         Element elementDatosEspecificos;
         
         try {
+            
+            Logger.getLogger(NIVRENTIv3RecobrimentFacade.class.getName()).log(Level.INFO, datosEspecificosPeticion.toString());
+            
             XmlManager<NIVRENTIv3PeticionDatosEspecificos> manager
                     = new XmlManager<NIVRENTIv3PeticionDatosEspecificos>(NIVRENTIv3PeticionDatosEspecificos.class);
-            elementDatosEspecificos = manager.generateElement(datosEspecificosPeticion);
             
+              XmlSchema xmlSchemaAnnotation = manager.getXmlSchemaAnnotation();
+  
+            System.out.println("NAMESPACE: " + xmlSchemaAnnotation.namespace());
+            System.out.println("LOCATION: " + xmlSchemaAnnotation.location());
+            
+            elementDatosEspecificos = manager.generateElement(datosEspecificosPeticion);
             return elementDatosEspecificos;
-        } catch (JAXBException ex) {
-            Logger.getLogger(NIVRENTIv3RecobrimentFacade.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ParserConfigurationException ex) {
+            Logger.getLogger(NIVRENTIv3RecobrimentFacade.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (JAXBException ex) {
             Logger.getLogger(NIVRENTIv3RecobrimentFacade.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;

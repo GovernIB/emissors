@@ -20,12 +20,16 @@ import es.caib.pinbal.ws.recobriment.TipoDocumentacion;
 import es.caib.scsp.pinbal.ws.recobriment.facade.RecobrimentFacade;
 import es.caib.scsp.pinbal.ws.recobriment.facade.RespuestaClientAdapter;
 import es.caib.ajuviv.pinbal.ws.recobriment.datosespecificos.SCDHPAJUv3PeticionDatosEspecificos;
+import es.caib.ajuviv.pinbal.ws.recobriment.datosespecificos.SCDHPAJUv3PeticionDatosEspecificos;
+import es.caib.ajuviv.pinbal.ws.recobriment.datosespecificos.SCDHPAJUv3RespuestaDatosEspecificos;
 import es.caib.ajuviv.pinbal.ws.recobriment.datosespecificos.SCDHPAJUv3RespuestaDatosEspecificos;
 import es.caib.scsp.utils.xml.XmlManager;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.xml.bind.JAXBException;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlSchema;
 import javax.xml.parsers.ParserConfigurationException;
 import org.w3c.dom.Element;
 
@@ -54,6 +58,19 @@ public class SCDHPAJUv3RecobrimentFacade
         try {
             XmlManager<SCDHPAJUv3PeticionDatosEspecificos> manager
                     = new XmlManager<SCDHPAJUv3PeticionDatosEspecificos>(SCDHPAJUv3PeticionDatosEspecificos.class);
+            
+                XmlSchema xmlSchemaAnnotation = manager.getXmlSchemaAnnotation();
+  
+            System.out.println("NAMESPACE: " + xmlSchemaAnnotation.namespace());
+            System.out.println("LOCATION: " + xmlSchemaAnnotation.location());
+            
+               System.out.println("getXmlRootElementAnnotation");
+        
+        XmlRootElement xmlRootElementAnnotation = manager.getXmlRootElementAnnotation();
+  
+        System.out.println("NAMESPACE: " + xmlRootElementAnnotation.namespace());
+              System.out.println("NAME: " + xmlRootElementAnnotation.name());
+            
             elementDatosEspecificos = manager.generateElement(datosEspecificosPeticion);
             return elementDatosEspecificos;
         } catch (JAXBException ex) {

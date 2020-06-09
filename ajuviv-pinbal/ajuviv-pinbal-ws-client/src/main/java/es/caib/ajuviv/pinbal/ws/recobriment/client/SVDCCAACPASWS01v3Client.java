@@ -36,7 +36,7 @@ public class SVDCCAACPASWS01v3Client {
     //Emisor (obtingut de la documentació SCSP del servei)
 
     private String nifEmisor = "S0711001H";
-    private String nombreEmisor = "CAIB";
+    private String nombreEmisor = "Govern de les Illes Balears";
 
     //Funcionario
 
@@ -46,8 +46,8 @@ public class SVDCCAACPASWS01v3Client {
 
     //Procedimiento
 
-    private String codProcedimiento = "2083134";
-    private String nombreProcedimiento = "Escolartizació";
+    private String codProcedimiento = "CODSVDR_GBA_20121107";
+    private String nombreProcedimiento = "PRUEBAS DE INTEGRACION PARA GOBIERNO DE BALEARES";
    
     //Solicitante
     private String codigoUnidadTramitadora = null;
@@ -61,6 +61,7 @@ public class SVDCCAACPASWS01v3Client {
     //Titular
     private String apellido1 = "";
     private String apellido2 = "";
+    //private String documentacion = "42474391S";
     private String documentacion = "78215122B";
     private String nombre = "";
     private String nombreCompleto = "";
@@ -75,7 +76,7 @@ public class SVDCCAACPASWS01v3Client {
     
     // Datos Especificos
     // PeticionDatosEspecificos
-    
+    private String codigoProvincia="07";
     // Fin datos especificos
     
   
@@ -105,7 +106,7 @@ public class SVDCCAACPASWS01v3Client {
     public RespuestaClientAdapter<SVDCCAACPASWS01v3RespuestaDatosEspecificos> peticionSincrona(){
         
         RespuestaClientAdapter<SVDCCAACPASWS01v3RespuestaDatosEspecificos> respuestaClient =
-            facade.peticionSincrona(codigoEstado, codigoEstadoSecundario, literalError, literalErrorSec, tiempoEstimadoRespuesta, codigoCertificado, idPeticion, numElementos, timeStamp, nifEmisor, nombreEmisor, nifFuncionario, nombreCompletoFuncionario, seudonimo, codProcedimiento, nombreProcedimiento, codigoUnidadTramitadora, consentimiento, finalidad, idExpediente, identificadorSolicitante, nombreSolicitante, unidadTramitadora, apellido1, apellido2, documentacion, nombre, nombreCompleto, tipoDocumentacion, fechaGeneracion, idSolicitud, idTransmision);
+            facade.peticionSincrona(codigoEstado, codigoEstadoSecundario, literalError, literalErrorSec, tiempoEstimadoRespuesta, codigoCertificado, idPeticion, numElementos, timeStamp, nifEmisor, nombreEmisor, nifFuncionario, nombreCompletoFuncionario, seudonimo, codProcedimiento, nombreProcedimiento, codigoUnidadTramitadora, consentimiento, finalidad, idExpediente, identificadorSolicitante, nombreSolicitante, unidadTramitadora, apellido1, apellido2, documentacion, nombre, nombreCompleto, tipoDocumentacion, fechaGeneracion, idSolicitud, idTransmision, codigoProvincia);
         return respuestaClient;
     }
     

@@ -20,6 +20,8 @@ import es.caib.pinbal.ws.recobriment.TipoDocumentacion;
 import es.caib.scsp.pinbal.ws.recobriment.facade.RecobrimentFacade;
 import es.caib.scsp.pinbal.ws.recobriment.facade.RespuestaClientAdapter;
 import es.caib.ajuviv.pinbal.ws.recobriment.datosespecificos.SVDCCAACPASWS01v3PeticionDatosEspecificos;
+import es.caib.ajuviv.pinbal.ws.recobriment.datosespecificos.SVDCCAACPASWS01v3PeticionDatosEspecificos;
+import es.caib.ajuviv.pinbal.ws.recobriment.datosespecificos.SVDCCAACPASWS01v3RespuestaDatosEspecificos;
 import es.caib.ajuviv.pinbal.ws.recobriment.datosespecificos.SVDCCAACPASWS01v3RespuestaDatosEspecificos;
 import es.caib.scsp.utils.xml.XmlManager;
 import java.io.IOException;
@@ -121,9 +123,18 @@ public class SVDCCAACPASWS01v3RecobrimentFacade
     }
     
     
-    private SVDCCAACPASWS01v3PeticionDatosEspecificos establecerDatosEspecificosPeticion(){
+    private SVDCCAACPASWS01v3PeticionDatosEspecificos establecerDatosEspecificosPeticion(String codigoProvincia){
     
-        return null;
+        SVDCCAACPASWS01v3PeticionDatosEspecificos datosEspecificos = new SVDCCAACPASWS01v3PeticionDatosEspecificos();
+       
+        es.caib.scsp.esquemas.SVDCCAACPASWS01v3.peticion.datosespecificos.Consulta consulta = 
+                new es.caib.scsp.esquemas.SVDCCAACPASWS01v3.peticion.datosespecificos.Consulta();
+        
+        consulta.setCodigoProvincia(codigoProvincia);
+        
+        datosEspecificos.setConsulta(consulta);
+        
+        return datosEspecificos;
     }
     
     
@@ -141,12 +152,12 @@ public class SVDCCAACPASWS01v3RecobrimentFacade
                 String unidadTramitadora, String apellido1, String apellido2, 
                 String documentacion, String nombre, String nombreCompleto, 
                 TipoDocumentacion tipoDocumentacion, String fechaGeneracion, 
-                String idSolicitud, String idTransmision
+                String idSolicitud, String idTransmision, String codigoProvincia
     ) {
         
         
         SVDCCAACPASWS01v3PeticionDatosEspecificos datosEspecificosPeticion = 
-                establecerDatosEspecificosPeticion();
+                establecerDatosEspecificosPeticion(codigoProvincia);
         
         
         return this.peticionSincronaEspecifica(

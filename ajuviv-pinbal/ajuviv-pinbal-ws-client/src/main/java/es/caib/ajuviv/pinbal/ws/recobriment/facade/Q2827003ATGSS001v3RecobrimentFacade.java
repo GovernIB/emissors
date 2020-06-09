@@ -20,6 +20,8 @@ import es.caib.pinbal.ws.recobriment.TipoDocumentacion;
 import es.caib.scsp.pinbal.ws.recobriment.facade.RecobrimentFacade;
 import es.caib.scsp.pinbal.ws.recobriment.facade.RespuestaClientAdapter;
 import es.caib.ajuviv.pinbal.ws.recobriment.datosespecificos.Q2827003ATGSS001v3PeticionDatosEspecificos;
+import es.caib.ajuviv.pinbal.ws.recobriment.datosespecificos.Q2827003ATGSS001v3PeticionDatosEspecificos;
+import es.caib.ajuviv.pinbal.ws.recobriment.datosespecificos.Q2827003ATGSS001v3RespuestaDatosEspecificos;
 import es.caib.ajuviv.pinbal.ws.recobriment.datosespecificos.Q2827003ATGSS001v3RespuestaDatosEspecificos;
 import es.caib.scsp.utils.xml.XmlManager;
 import java.io.IOException;
@@ -48,6 +50,8 @@ public class Q2827003ATGSS001v3RecobrimentFacade
      */
     @Override
     protected Element datosEspecificos2Element(Q2827003ATGSS001v3PeticionDatosEspecificos datosEspecificosPeticion){
+        
+        if (datosEspecificosPeticion==null) return null;
         
         Element elementDatosEspecificos;
         
