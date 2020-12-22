@@ -6,7 +6,7 @@ import es.caib.pinbal.ws.recobriment.TipoDocumentacion;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import es.caib.scsp.pinbal.ws.recobriment.facade.RespuestaClientAdapter;
-import es.caib.carpeta.pinbal.ws.recobriment.datosespecificos.SCDHPAJUv3RespuestaDatosEspecificos;
+import es.caib.carpeta.pinbal.ws.recobriment.datosespecificos.SVDDGPVIWS02v3RespuestaDatosEspecificos;
 import es.caib.carpeta.pinbal.ws.recobriment.facade.SCDHPAJUv3RecobrimentFacade;
 
 
@@ -110,9 +110,9 @@ public class SCDHPAJUv3Client {
    
     
     
-    public RespuestaClientAdapter<SCDHPAJUv3RespuestaDatosEspecificos> peticionSincrona(){
+    public RespuestaClientAdapter<SVDDGPVIWS02v3RespuestaDatosEspecificos> peticionSincrona(){
         
-        RespuestaClientAdapter<SCDHPAJUv3RespuestaDatosEspecificos> respuestaClient =
+        RespuestaClientAdapter<SVDDGPVIWS02v3RespuestaDatosEspecificos> respuestaClient =
             facade.peticionSincrona(codigoEstado, codigoEstadoSecundario, literalError, literalErrorSec, tiempoEstimadoRespuesta, codigoCertificado, idPeticion, numElementos, timeStamp, nifEmisor, nombreEmisor, nifFuncionario, nombreCompletoFuncionario, seudonimo, codProcedimiento, nombreProcedimiento, codigoUnidadTramitadora, consentimiento, finalidad, idExpediente, identificadorSolicitante, nombreSolicitante, unidadTramitadora, apellido1, apellido2, documentacion, nombre, nombreCompleto, tipoDocumentacion, fechaGeneracion, idSolicitud, idTransmision, municipioSolicitud, numeroAnyos, provinciaSolicitud, nombreTipoDocumentacion, valorDocumentacion, NIA);
         return respuestaClient;
     }

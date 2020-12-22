@@ -15,7 +15,7 @@
  */
 package es.caib.carpeta.pinbal.ws.recobriment.client;
 
-import es.caib.carpeta.pinbal.ws.recobriment.datosespecificos.SCDHPAJUv3RespuestaDatosEspecificos;
+import es.caib.carpeta.pinbal.ws.recobriment.datosespecificos.SVDDGPVIWS02v3RespuestaDatosEspecificos;
 import es.caib.scsp.pinbal.ws.recobriment.client.DadesConnexioRecobriment;
 import es.caib.scsp.pinbal.ws.recobriment.facade.RespuestaClientAdapter;
 import org.junit.After;
@@ -83,8 +83,8 @@ public class SCDHPAJUv3ClientTest {
     public void testPeticionSincrona() {
         //System.out.println("peticionSincrona");
         
-        RespuestaClientAdapter<SCDHPAJUv3RespuestaDatosEspecificos> expResult = null;
-        RespuestaClientAdapter<SCDHPAJUv3RespuestaDatosEspecificos> result = client.peticionSincrona();
+        RespuestaClientAdapter<SVDDGPVIWS02v3RespuestaDatosEspecificos> expResult = null;
+        RespuestaClientAdapter<SVDDGPVIWS02v3RespuestaDatosEspecificos> result = client.peticionSincrona();
         
         System.out.println("APELLIDO  :" + result.getTransmisionesClient().get(0).getDatosEspecificos().getResultado().getApellido1());
       

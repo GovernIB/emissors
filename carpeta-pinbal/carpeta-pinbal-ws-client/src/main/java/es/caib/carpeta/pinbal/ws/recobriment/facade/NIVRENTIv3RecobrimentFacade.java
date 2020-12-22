@@ -19,10 +19,10 @@ import es.caib.pinbal.ws.recobriment.Consentimiento;
 import es.caib.pinbal.ws.recobriment.TipoDocumentacion;
 import es.caib.scsp.pinbal.ws.recobriment.facade.RecobrimentFacade;
 import es.caib.scsp.pinbal.ws.recobriment.facade.RespuestaClientAdapter;
-import es.caib.carpeta.pinbal.ws.recobriment.datosespecificos.NIVRENTIv3PeticionDatosEspecificos;
-import es.caib.carpeta.pinbal.ws.recobriment.datosespecificos.NIVRENTIv3PeticionDatosEspecificos;
-import es.caib.carpeta.pinbal.ws.recobriment.datosespecificos.NIVRENTIv3RespuestaDatosEspecificos;
-import es.caib.carpeta.pinbal.ws.recobriment.datosespecificos.NIVRENTIv3RespuestaDatosEspecificos;
+import es.caib.carpeta.pinbal.ws.recobriment.datosespecificos.VDISFWS01v2PeticionDatosEspecificos;
+import es.caib.carpeta.pinbal.ws.recobriment.datosespecificos.VDISFWS01v2PeticionDatosEspecificos;
+import es.caib.carpeta.pinbal.ws.recobriment.datosespecificos.VDISFWS01v2RespuestaDatosEspecificos;
+import es.caib.carpeta.pinbal.ws.recobriment.datosespecificos.VDISFWS01v2RespuestaDatosEspecificos;
 import es.caib.scsp.utils.xml.XmlManager;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -38,7 +38,7 @@ import org.w3c.dom.Element;
  */
 public class NIVRENTIv3RecobrimentFacade
         extends RecobrimentFacade<
-        NIVRENTIv3PeticionDatosEspecificos, NIVRENTIv3RespuestaDatosEspecificos> {
+        VDISFWS01v2PeticionDatosEspecificos, VDISFWS01v2RespuestaDatosEspecificos> {
 
     
      
@@ -54,7 +54,7 @@ public class NIVRENTIv3RecobrimentFacade
      * @return
      */
     @Override
-    protected Element datosEspecificos2Element(NIVRENTIv3PeticionDatosEspecificos datosEspecificosPeticion){
+    protected Element datosEspecificos2Element(VDISFWS01v2PeticionDatosEspecificos datosEspecificosPeticion){
         
         Element elementDatosEspecificos;
         
@@ -62,8 +62,8 @@ public class NIVRENTIv3RecobrimentFacade
             
             Logger.getLogger(NIVRENTIv3RecobrimentFacade.class.getName()).log(Level.INFO, datosEspecificosPeticion.toString());
             
-            XmlManager<NIVRENTIv3PeticionDatosEspecificos> manager
-                    = new XmlManager<NIVRENTIv3PeticionDatosEspecificos>(NIVRENTIv3PeticionDatosEspecificos.class);
+            XmlManager<VDISFWS01v2PeticionDatosEspecificos> manager
+                    = new XmlManager<VDISFWS01v2PeticionDatosEspecificos>(VDISFWS01v2PeticionDatosEspecificos.class);
             
               XmlSchema xmlSchemaAnnotation = manager.getXmlSchemaAnnotation();
   
@@ -83,7 +83,7 @@ public class NIVRENTIv3RecobrimentFacade
     }
 
     @Override
-    protected RespuestaClientAdapter<NIVRENTIv3RespuestaDatosEspecificos> peticionSincronaEspecifica(
+    protected RespuestaClientAdapter<VDISFWS01v2RespuestaDatosEspecificos> peticionSincronaEspecifica(
                 String codigoEstado, String codigoEstadoSecundario, 
                 String literalError, String literalErrorSec, Integer tiempoEstimadoRespuesta, 
                 String codigoCertificado, String idPeticion, 
@@ -97,7 +97,7 @@ public class NIVRENTIv3RecobrimentFacade
                 String documentacion, String nombre, String nombreCompleto, 
                 TipoDocumentacion tipoDocumentacion, String fechaGeneracion, 
                 String idSolicitud, String idTransmision, 
-                NIVRENTIv3PeticionDatosEspecificos datosEspecificosPeticion) {
+                VDISFWS01v2PeticionDatosEspecificos datosEspecificosPeticion) {
         
         return this.peticionSincrona(
                 codigoEstado,
@@ -137,12 +137,12 @@ public class NIVRENTIv3RecobrimentFacade
     }
     
     
-    private NIVRENTIv3PeticionDatosEspecificos establecerDatosEspecificosPeticion(
+    private VDISFWS01v2PeticionDatosEspecificos establecerDatosEspecificosPeticion(
             Integer ejercicio
     ){
        
         
-        NIVRENTIv3PeticionDatosEspecificos datosEspecificos = new NIVRENTIv3PeticionDatosEspecificos();
+        VDISFWS01v2PeticionDatosEspecificos datosEspecificos = new VDISFWS01v2PeticionDatosEspecificos();
        
         datosEspecificos.setEjercicio(ejercicio);
         
@@ -150,7 +150,7 @@ public class NIVRENTIv3RecobrimentFacade
     }
     
     
-    public RespuestaClientAdapter<NIVRENTIv3RespuestaDatosEspecificos> peticionSincrona(
+    public RespuestaClientAdapter<VDISFWS01v2RespuestaDatosEspecificos> peticionSincrona(
                 String codigoEstado, String codigoEstadoSecundario, 
                 String literalError, String literalErrorSec, Integer tiempoEstimadoRespuesta, 
                 String codigoCertificado, String idPeticion, 
@@ -169,7 +169,7 @@ public class NIVRENTIv3RecobrimentFacade
                 ) {
         
         
-        NIVRENTIv3PeticionDatosEspecificos datosEspecificosPeticion = 
+        VDISFWS01v2PeticionDatosEspecificos datosEspecificosPeticion = 
                 establecerDatosEspecificosPeticion(ejercicio);
         
         
@@ -211,12 +211,12 @@ public class NIVRENTIv3RecobrimentFacade
     }
 
     @Override
-    protected NIVRENTIv3RespuestaDatosEspecificos element2DatosEspecificos(Element elementDatosEspecificos) {
+    protected VDISFWS01v2RespuestaDatosEspecificos element2DatosEspecificos(Element elementDatosEspecificos) {
         
-        NIVRENTIv3RespuestaDatosEspecificos datosEspecificos;
+        VDISFWS01v2RespuestaDatosEspecificos datosEspecificos;
         try {
-            XmlManager<NIVRENTIv3RespuestaDatosEspecificos> manager
-                    = new XmlManager<NIVRENTIv3RespuestaDatosEspecificos>(NIVRENTIv3RespuestaDatosEspecificos.class);
+            XmlManager<VDISFWS01v2RespuestaDatosEspecificos> manager
+                    = new XmlManager<VDISFWS01v2RespuestaDatosEspecificos>(VDISFWS01v2RespuestaDatosEspecificos.class);
             datosEspecificos = manager.generateItem(elementDatosEspecificos);
             
             return datosEspecificos;

@@ -19,10 +19,10 @@ import es.caib.pinbal.ws.recobriment.Consentimiento;
 import es.caib.pinbal.ws.recobriment.TipoDocumentacion;
 import es.caib.scsp.pinbal.ws.recobriment.facade.RecobrimentFacade;
 import es.caib.scsp.pinbal.ws.recobriment.facade.RespuestaClientAdapter;
-import es.caib.carpeta.pinbal.ws.recobriment.datosespecificos.SCDHPAJUv3PeticionDatosEspecificos;
-import es.caib.carpeta.pinbal.ws.recobriment.datosespecificos.SCDHPAJUv3PeticionDatosEspecificos;
-import es.caib.carpeta.pinbal.ws.recobriment.datosespecificos.SCDHPAJUv3RespuestaDatosEspecificos;
-import es.caib.carpeta.pinbal.ws.recobriment.datosespecificos.SCDHPAJUv3RespuestaDatosEspecificos;
+import es.caib.carpeta.pinbal.ws.recobriment.datosespecificos.SVDDGPVIWS02v3PeticionDatosEspecificos;
+import es.caib.carpeta.pinbal.ws.recobriment.datosespecificos.SVDDGPVIWS02v3PeticionDatosEspecificos;
+import es.caib.carpeta.pinbal.ws.recobriment.datosespecificos.SVDDGPVIWS02v3RespuestaDatosEspecificos;
+import es.caib.carpeta.pinbal.ws.recobriment.datosespecificos.SVDDGPVIWS02v3RespuestaDatosEspecificos;
 import es.caib.scsp.utils.xml.XmlManager;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -39,7 +39,7 @@ import org.w3c.dom.Element;
  */
 public class SCDHPAJUv3RecobrimentFacade
         extends RecobrimentFacade<
-        SCDHPAJUv3PeticionDatosEspecificos, SCDHPAJUv3RespuestaDatosEspecificos> {
+        SVDDGPVIWS02v3PeticionDatosEspecificos, SVDDGPVIWS02v3RespuestaDatosEspecificos> {
 
     public SCDHPAJUv3RecobrimentFacade(String app) {
         super(app);
@@ -51,13 +51,13 @@ public class SCDHPAJUv3RecobrimentFacade
      * @return
      */
     @Override
-    protected Element datosEspecificos2Element(SCDHPAJUv3PeticionDatosEspecificos datosEspecificosPeticion){
+    protected Element datosEspecificos2Element(SVDDGPVIWS02v3PeticionDatosEspecificos datosEspecificosPeticion){
         
         Element elementDatosEspecificos;
         
         try {
-            XmlManager<SCDHPAJUv3PeticionDatosEspecificos> manager
-                    = new XmlManager<SCDHPAJUv3PeticionDatosEspecificos>(SCDHPAJUv3PeticionDatosEspecificos.class);
+            XmlManager<SVDDGPVIWS02v3PeticionDatosEspecificos> manager
+                    = new XmlManager<SVDDGPVIWS02v3PeticionDatosEspecificos>(SVDDGPVIWS02v3PeticionDatosEspecificos.class);
             
                 XmlSchema xmlSchemaAnnotation = manager.getXmlSchemaAnnotation();
   
@@ -84,7 +84,7 @@ public class SCDHPAJUv3RecobrimentFacade
     }
 
     @Override
-    protected RespuestaClientAdapter<SCDHPAJUv3RespuestaDatosEspecificos> peticionSincronaEspecifica(
+    protected RespuestaClientAdapter<SVDDGPVIWS02v3RespuestaDatosEspecificos> peticionSincronaEspecifica(
                 String codigoEstado, String codigoEstadoSecundario, 
                 String literalError, String literalErrorSec, Integer tiempoEstimadoRespuesta, 
                 String codigoCertificado, String idPeticion, 
@@ -98,7 +98,7 @@ public class SCDHPAJUv3RecobrimentFacade
                 String documentacion, String nombre, String nombreCompleto, 
                 TipoDocumentacion tipoDocumentacion, String fechaGeneracion, 
                 String idSolicitud, String idTransmision, 
-                SCDHPAJUv3PeticionDatosEspecificos datosEspecificosPeticion) {
+                SVDDGPVIWS02v3PeticionDatosEspecificos datosEspecificosPeticion) {
         
         return this.peticionSincrona(
                 codigoEstado,
@@ -138,7 +138,7 @@ public class SCDHPAJUv3RecobrimentFacade
     }
     
     
-    private SCDHPAJUv3PeticionDatosEspecificos establecerDatosEspecificosPeticion(
+    private SVDDGPVIWS02v3PeticionDatosEspecificos establecerDatosEspecificosPeticion(
             String municipioSolicitud, String numeroAnyos, String provinciaSolicitud,
             String nombreTipoDocumentacion, String valorDocumentacion, String NIA
     ){
@@ -164,7 +164,7 @@ public class SCDHPAJUv3RecobrimentFacade
         solicitud.setProvinciaSolicitud(provinciaSolicitud);
         solicitud.setTitular(titular);
         
-        SCDHPAJUv3PeticionDatosEspecificos datosEspecificos = new SCDHPAJUv3PeticionDatosEspecificos();
+        SVDDGPVIWS02v3PeticionDatosEspecificos datosEspecificos = new SVDDGPVIWS02v3PeticionDatosEspecificos();
         
         datosEspecificos.setSolicitud(solicitud);
         
@@ -172,7 +172,7 @@ public class SCDHPAJUv3RecobrimentFacade
     }
     
     
-    public RespuestaClientAdapter<SCDHPAJUv3RespuestaDatosEspecificos> peticionSincrona(
+    public RespuestaClientAdapter<SVDDGPVIWS02v3RespuestaDatosEspecificos> peticionSincrona(
                 String codigoEstado, String codigoEstadoSecundario, 
                 String literalError, String literalErrorSec, Integer tiempoEstimadoRespuesta, 
                 String codigoCertificado, String idPeticion, 
@@ -192,7 +192,7 @@ public class SCDHPAJUv3RecobrimentFacade
                 ) {
         
         
-        SCDHPAJUv3PeticionDatosEspecificos datosEspecificosPeticion = 
+        SVDDGPVIWS02v3PeticionDatosEspecificos datosEspecificosPeticion = 
                 establecerDatosEspecificosPeticion(municipioSolicitud, numeroAnyos,
                 provinciaSolicitud, nombreTipoDocumentacion,valorDocumentacion, NIA);
         
@@ -235,12 +235,12 @@ public class SCDHPAJUv3RecobrimentFacade
     }
 
     @Override
-    protected SCDHPAJUv3RespuestaDatosEspecificos element2DatosEspecificos(Element elementDatosEspecificos) {
+    protected SVDDGPVIWS02v3RespuestaDatosEspecificos element2DatosEspecificos(Element elementDatosEspecificos) {
         
-        SCDHPAJUv3RespuestaDatosEspecificos datosEspecificos;
+        SVDDGPVIWS02v3RespuestaDatosEspecificos datosEspecificos;
         try {
-            XmlManager<SCDHPAJUv3RespuestaDatosEspecificos> manager
-                    = new XmlManager<SCDHPAJUv3RespuestaDatosEspecificos>(SCDHPAJUv3RespuestaDatosEspecificos.class);
+            XmlManager<SVDDGPVIWS02v3RespuestaDatosEspecificos> manager
+                    = new XmlManager<SVDDGPVIWS02v3RespuestaDatosEspecificos>(SVDDGPVIWS02v3RespuestaDatosEspecificos.class);
             datosEspecificos = manager.generateItem(elementDatosEspecificos);
             
             return datosEspecificos;

@@ -15,7 +15,7 @@
  */
 package es.caib.carpeta.pinbal.ws.recobriment.client;
 
-import es.caib.carpeta.pinbal.ws.recobriment.datosespecificos.NIVRENTIv3RespuestaDatosEspecificos;
+import es.caib.carpeta.pinbal.ws.recobriment.datosespecificos.VDISFWS01v2RespuestaDatosEspecificos;
 import es.caib.scsp.pinbal.ws.recobriment.client.DadesConnexioRecobriment;
 import es.caib.scsp.pinbal.ws.recobriment.facade.RespuestaClientAdapter;
 import org.junit.After;
@@ -83,8 +83,8 @@ public class NIVRENTIv3ClientTest {
     public void testPeticionSincrona() {
         System.out.println("peticionSincrona");
         
-        RespuestaClientAdapter<NIVRENTIv3RespuestaDatosEspecificos> expResult = null;
-        RespuestaClientAdapter<NIVRENTIv3RespuestaDatosEspecificos> result = client.peticionSincrona();
+        RespuestaClientAdapter<VDISFWS01v2RespuestaDatosEspecificos> expResult = null;
+        RespuestaClientAdapter<VDISFWS01v2RespuestaDatosEspecificos> result = client.peticionSincrona();
         
         String testresult = "RESPUESTA  ";
         

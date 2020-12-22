@@ -23,9 +23,9 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 
 @XmlRootElement(name = "datosEspecificos")
-public class NIVRENTIv3PeticionDatosEspecificos 
-        extends es.caib.scsp.esquemas.NIVRENTIv3.peticion.datosespecificos.DatosEspecificos {
-    public NIVRENTIv3PeticionDatosEspecificos(){
+public class VDISFWS01v2PeticionDatosEspecificos 
+        extends es.caib.scsp.esquemas.VDISFWS01v2.peticion.datosespecificos.DatosEspecificos {
+    public VDISFWS01v2PeticionDatosEspecificos(){
         super();
         
     }

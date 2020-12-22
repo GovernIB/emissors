@@ -6,8 +6,8 @@ import es.caib.pinbal.ws.recobriment.TipoDocumentacion;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import es.caib.scsp.pinbal.ws.recobriment.facade.RespuestaClientAdapter;
-import es.caib.carpeta.pinbal.ws.recobriment.datosespecificos.AEAT103Iv3RespuestaDatosEspecificos;
-import es.caib.carpeta.pinbal.ws.recobriment.facade.AEAT103Iv3RecobrimentFacade;
+import es.caib.carpeta.pinbal.ws.recobriment.datosespecificos.CDISFWS01v2RespuestaDatosEspecificos;
+import es.caib.carpeta.pinbal.ws.recobriment.facade.CDISFWS01v2RecobrimentFacade;
 
 
 /**
@@ -82,14 +82,14 @@ public class AEAT103Iv3Client {
     
     protected static final Logger LOG = Logger.getLogger(AEAT103Iv3Client.class.getName());
 
-    private AEAT103Iv3RecobrimentFacade facade;
+    private CDISFWS01v2RecobrimentFacade facade;
     
     public AEAT103Iv3Client(){
         this(APP);
     }
     
     public AEAT103Iv3Client(String app){
-        this.facade = new AEAT103Iv3RecobrimentFacade(app);
+        this.facade = new CDISFWS01v2RecobrimentFacade(app);
     }
     
     public void dummy(){
@@ -102,9 +102,9 @@ public class AEAT103Iv3Client {
    
     
     
-    public RespuestaClientAdapter<AEAT103Iv3RespuestaDatosEspecificos> peticionSincrona(){
+    public RespuestaClientAdapter<CDISFWS01v2RespuestaDatosEspecificos> peticionSincrona(){
         
-        RespuestaClientAdapter<AEAT103Iv3RespuestaDatosEspecificos> respuestaClient =
+        RespuestaClientAdapter<CDISFWS01v2RespuestaDatosEspecificos> respuestaClient =
             facade.peticionSincrona(codigoEstado, codigoEstadoSecundario, literalError, literalErrorSec, tiempoEstimadoRespuesta, codigoCertificado, idPeticion, numElementos, timeStamp, nifEmisor, nombreEmisor, nifFuncionario, nombreCompletoFuncionario, seudonimo, codProcedimiento, nombreProcedimiento, codigoUnidadTramitadora, consentimiento, finalidad, idExpediente, identificadorSolicitante, nombreSolicitante, unidadTramitadora, apellido1, apellido2, documentacion, nombre, nombreCompleto, tipoDocumentacion, fechaGeneracion, idSolicitud, idTransmision);
         return respuestaClient;
     }

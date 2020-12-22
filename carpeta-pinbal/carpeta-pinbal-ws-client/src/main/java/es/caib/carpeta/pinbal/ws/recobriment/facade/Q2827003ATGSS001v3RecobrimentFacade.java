@@ -19,10 +19,10 @@ import es.caib.pinbal.ws.recobriment.Consentimiento;
 import es.caib.pinbal.ws.recobriment.TipoDocumentacion;
 import es.caib.scsp.pinbal.ws.recobriment.facade.RecobrimentFacade;
 import es.caib.scsp.pinbal.ws.recobriment.facade.RespuestaClientAdapter;
-import es.caib.carpeta.pinbal.ws.recobriment.datosespecificos.Q2827003ATGSS001v3PeticionDatosEspecificos;
-import es.caib.carpeta.pinbal.ws.recobriment.datosespecificos.Q2827003ATGSS001v3PeticionDatosEspecificos;
-import es.caib.carpeta.pinbal.ws.recobriment.datosespecificos.Q2827003ATGSS001v3RespuestaDatosEspecificos;
-import es.caib.carpeta.pinbal.ws.recobriment.datosespecificos.Q2827003ATGSS001v3RespuestaDatosEspecificos;
+import es.caib.carpeta.pinbal.ws.recobriment.datosespecificos.SVDDGPCIWS02v3PeticionDatosEspecificos;
+import es.caib.carpeta.pinbal.ws.recobriment.datosespecificos.SVDDGPCIWS02v3PeticionDatosEspecificos;
+import es.caib.carpeta.pinbal.ws.recobriment.datosespecificos.SVDDGPCIWS02v3RespuestaDatosEspecificos;
+import es.caib.carpeta.pinbal.ws.recobriment.datosespecificos.SVDDGPCIWS02v3RespuestaDatosEspecificos;
 import es.caib.scsp.utils.xml.XmlManager;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -37,7 +37,7 @@ import org.w3c.dom.Element;
  */
 public class Q2827003ATGSS001v3RecobrimentFacade
         extends RecobrimentFacade<
-        Q2827003ATGSS001v3PeticionDatosEspecificos, Q2827003ATGSS001v3RespuestaDatosEspecificos> {
+        SVDDGPCIWS02v3PeticionDatosEspecificos, SVDDGPCIWS02v3RespuestaDatosEspecificos> {
 
     public Q2827003ATGSS001v3RecobrimentFacade(String app) {
         super(app);
@@ -49,15 +49,15 @@ public class Q2827003ATGSS001v3RecobrimentFacade
      * @return
      */
     @Override
-    protected Element datosEspecificos2Element(Q2827003ATGSS001v3PeticionDatosEspecificos datosEspecificosPeticion){
+    protected Element datosEspecificos2Element(SVDDGPCIWS02v3PeticionDatosEspecificos datosEspecificosPeticion){
         
         if (datosEspecificosPeticion==null) return null;
         
         Element elementDatosEspecificos;
         
         try {
-            XmlManager<Q2827003ATGSS001v3PeticionDatosEspecificos> manager
-                    = new XmlManager<Q2827003ATGSS001v3PeticionDatosEspecificos>(Q2827003ATGSS001v3PeticionDatosEspecificos.class);
+            XmlManager<SVDDGPCIWS02v3PeticionDatosEspecificos> manager
+                    = new XmlManager<SVDDGPCIWS02v3PeticionDatosEspecificos>(SVDDGPCIWS02v3PeticionDatosEspecificos.class);
             elementDatosEspecificos = manager.generateElement(datosEspecificosPeticion);
             return elementDatosEspecificos;
         } catch (JAXBException ex) {
@@ -71,7 +71,7 @@ public class Q2827003ATGSS001v3RecobrimentFacade
     }
 
     @Override
-    protected RespuestaClientAdapter<Q2827003ATGSS001v3RespuestaDatosEspecificos> peticionSincronaEspecifica(
+    protected RespuestaClientAdapter<SVDDGPCIWS02v3RespuestaDatosEspecificos> peticionSincronaEspecifica(
                 String codigoEstado, String codigoEstadoSecundario, 
                 String literalError, String literalErrorSec, Integer tiempoEstimadoRespuesta, 
                 String codigoCertificado, String idPeticion, 
@@ -85,7 +85,7 @@ public class Q2827003ATGSS001v3RecobrimentFacade
                 String documentacion, String nombre, String nombreCompleto, 
                 TipoDocumentacion tipoDocumentacion, String fechaGeneracion, 
                 String idSolicitud, String idTransmision, 
-                Q2827003ATGSS001v3PeticionDatosEspecificos datosEspecificosPeticion) {
+                SVDDGPCIWS02v3PeticionDatosEspecificos datosEspecificosPeticion) {
         
         return this.peticionSincrona(
                 codigoEstado,
@@ -125,13 +125,13 @@ public class Q2827003ATGSS001v3RecobrimentFacade
     }
     
     
-    private Q2827003ATGSS001v3PeticionDatosEspecificos establecerDatosEspecificosPeticion(){
+    private SVDDGPCIWS02v3PeticionDatosEspecificos establecerDatosEspecificosPeticion(){
     
         return null;
     }
     
     
-    public RespuestaClientAdapter<Q2827003ATGSS001v3RespuestaDatosEspecificos> peticionSincrona(
+    public RespuestaClientAdapter<SVDDGPCIWS02v3RespuestaDatosEspecificos> peticionSincrona(
                 String codigoEstado, String codigoEstadoSecundario, 
                 String literalError, String literalErrorSec, Integer tiempoEstimadoRespuesta, 
                 String codigoCertificado, String idPeticion, 
@@ -149,7 +149,7 @@ public class Q2827003ATGSS001v3RecobrimentFacade
                 ) {
         
         
-        Q2827003ATGSS001v3PeticionDatosEspecificos datosEspecificosPeticion = 
+        SVDDGPCIWS02v3PeticionDatosEspecificos datosEspecificosPeticion = 
                 establecerDatosEspecificosPeticion();
         
         
@@ -191,12 +191,12 @@ public class Q2827003ATGSS001v3RecobrimentFacade
     }
 
     @Override
-    protected Q2827003ATGSS001v3RespuestaDatosEspecificos element2DatosEspecificos(Element elementDatosEspecificos) {
+    protected SVDDGPCIWS02v3RespuestaDatosEspecificos element2DatosEspecificos(Element elementDatosEspecificos) {
         
-        Q2827003ATGSS001v3RespuestaDatosEspecificos datosEspecificos;
+        SVDDGPCIWS02v3RespuestaDatosEspecificos datosEspecificos;
         try {
-            XmlManager<Q2827003ATGSS001v3RespuestaDatosEspecificos> manager
-                    = new XmlManager<Q2827003ATGSS001v3RespuestaDatosEspecificos>(Q2827003ATGSS001v3RespuestaDatosEspecificos.class);
+            XmlManager<SVDDGPCIWS02v3RespuestaDatosEspecificos> manager
+                    = new XmlManager<SVDDGPCIWS02v3RespuestaDatosEspecificos>(SVDDGPCIWS02v3RespuestaDatosEspecificos.class);
             datosEspecificos = manager.generateItem(elementDatosEspecificos);
             
             return datosEspecificos;

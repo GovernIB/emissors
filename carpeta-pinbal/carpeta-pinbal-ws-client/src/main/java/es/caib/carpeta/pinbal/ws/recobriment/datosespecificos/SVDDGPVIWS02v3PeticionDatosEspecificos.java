@@ -22,9 +22,9 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author gdeignacio
  */
 @XmlRootElement(name = "datosEspecificos")
-public class SCDHPAJUv3RespuestaDatosEspecificos 
-        extends es.caib.scsp.esquemas.SCDHPAJUv3.respuesta.datosespecificos.DatosEspecificos {
-    public SCDHPAJUv3RespuestaDatosEspecificos(){
+public class SVDDGPVIWS02v3PeticionDatosEspecificos 
+        extends es.caib.scsp.esquemas.SVDDGPVIWS02v3.peticion.datosespecificos.DatosEspecificos {
+    public SVDDGPVIWS02v3PeticionDatosEspecificos(){
         super();
     }
 }

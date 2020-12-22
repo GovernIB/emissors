@@ -6,7 +6,7 @@ import es.caib.pinbal.ws.recobriment.TipoDocumentacion;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import es.caib.scsp.pinbal.ws.recobriment.facade.RespuestaClientAdapter;
-import es.caib.carpeta.pinbal.ws.recobriment.datosespecificos.Q2827003ATGSS001v3RespuestaDatosEspecificos;
+import es.caib.carpeta.pinbal.ws.recobriment.datosespecificos.SVDDGPCIWS02v3RespuestaDatosEspecificos;
 import es.caib.carpeta.pinbal.ws.recobriment.facade.Q2827003ATGSS001v3RecobrimentFacade;
 
 
@@ -102,9 +102,9 @@ public class Q2827003ATGSS001v3Client {
    
     
     
-    public RespuestaClientAdapter<Q2827003ATGSS001v3RespuestaDatosEspecificos> peticionSincrona(){
+    public RespuestaClientAdapter<SVDDGPCIWS02v3RespuestaDatosEspecificos> peticionSincrona(){
         
-        RespuestaClientAdapter<Q2827003ATGSS001v3RespuestaDatosEspecificos> respuestaClient =
+        RespuestaClientAdapter<SVDDGPCIWS02v3RespuestaDatosEspecificos> respuestaClient =
             facade.peticionSincrona(codigoEstado, codigoEstadoSecundario, literalError, literalErrorSec, tiempoEstimadoRespuesta, codigoCertificado, idPeticion, numElementos, timeStamp, nifEmisor, nombreEmisor, nifFuncionario, nombreCompletoFuncionario, seudonimo, codProcedimiento, nombreProcedimiento, codigoUnidadTramitadora, consentimiento, finalidad, idExpediente, identificadorSolicitante, nombreSolicitante, unidadTramitadora, apellido1, apellido2, documentacion, nombre, nombreCompleto, tipoDocumentacion, fechaGeneracion, idSolicitud, idTransmision);
         return respuestaClient;
     }

@@ -19,10 +19,10 @@ import es.caib.pinbal.ws.recobriment.Consentimiento;
 import es.caib.pinbal.ws.recobriment.TipoDocumentacion;
 import es.caib.scsp.pinbal.ws.recobriment.facade.RecobrimentFacade;
 import es.caib.scsp.pinbal.ws.recobriment.facade.RespuestaClientAdapter;
-import es.caib.carpeta.pinbal.ws.recobriment.datosespecificos.AEAT103Iv3PeticionDatosEspecificos;
-import es.caib.carpeta.pinbal.ws.recobriment.datosespecificos.AEAT103Iv3PeticionDatosEspecificos;
-import es.caib.carpeta.pinbal.ws.recobriment.datosespecificos.AEAT103Iv3RespuestaDatosEspecificos;
-import es.caib.carpeta.pinbal.ws.recobriment.datosespecificos.AEAT103Iv3RespuestaDatosEspecificos;
+import es.caib.carpeta.pinbal.ws.recobriment.datosespecificos.CDISFWS01v2PeticionDatosEspecificos;
+import es.caib.carpeta.pinbal.ws.recobriment.datosespecificos.CDISFWS01v2PeticionDatosEspecificos;
+import es.caib.carpeta.pinbal.ws.recobriment.datosespecificos.CDISFWS01v2RespuestaDatosEspecificos;
+import es.caib.carpeta.pinbal.ws.recobriment.datosespecificos.CDISFWS01v2RespuestaDatosEspecificos;
 import es.caib.scsp.utils.xml.XmlManager;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -35,11 +35,11 @@ import org.w3c.dom.Element;
  *
  * @author gdeignacio
  */
-public class AEAT103Iv3RecobrimentFacade
+public class CDISFWS01v2RecobrimentFacade
         extends RecobrimentFacade<
-        AEAT103Iv3PeticionDatosEspecificos, AEAT103Iv3RespuestaDatosEspecificos> {
+        CDISFWS01v2PeticionDatosEspecificos, CDISFWS01v2RespuestaDatosEspecificos> {
 
-    public AEAT103Iv3RecobrimentFacade(String app) {
+    public CDISFWS01v2RecobrimentFacade(String app) {
         super(app);
     }
 
@@ -49,19 +49,19 @@ public class AEAT103Iv3RecobrimentFacade
      * @return
      */
     @Override
-    protected Element datosEspecificos2Element(AEAT103Iv3PeticionDatosEspecificos datosEspecificosPeticion){
+    protected Element datosEspecificos2Element(CDISFWS01v2PeticionDatosEspecificos datosEspecificosPeticion){
         
         Element elementDatosEspecificos;
         
         try {
-            XmlManager<AEAT103Iv3PeticionDatosEspecificos> manager
-                    = new XmlManager<AEAT103Iv3PeticionDatosEspecificos>(AEAT103Iv3PeticionDatosEspecificos.class);
+            XmlManager<CDISFWS01v2PeticionDatosEspecificos> manager
+                    = new XmlManager<CDISFWS01v2PeticionDatosEspecificos>(CDISFWS01v2PeticionDatosEspecificos.class);
             elementDatosEspecificos = manager.generateElement(datosEspecificosPeticion);
             return elementDatosEspecificos;
         } catch (JAXBException ex) {
-            Logger.getLogger(AEAT103Iv3RecobrimentFacade.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CDISFWS01v2RecobrimentFacade.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ParserConfigurationException ex) {
-            Logger.getLogger(AEAT103Iv3RecobrimentFacade.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CDISFWS01v2RecobrimentFacade.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
             
@@ -69,7 +69,7 @@ public class AEAT103Iv3RecobrimentFacade
     }
 
     @Override
-    protected RespuestaClientAdapter<AEAT103Iv3RespuestaDatosEspecificos> peticionSincronaEspecifica(
+    protected RespuestaClientAdapter<CDISFWS01v2RespuestaDatosEspecificos> peticionSincronaEspecifica(
                 String codigoEstado, String codigoEstadoSecundario, 
                 String literalError, String literalErrorSec, Integer tiempoEstimadoRespuesta, 
                 String codigoCertificado, String idPeticion, 
@@ -83,7 +83,7 @@ public class AEAT103Iv3RecobrimentFacade
                 String documentacion, String nombre, String nombreCompleto, 
                 TipoDocumentacion tipoDocumentacion, String fechaGeneracion, 
                 String idSolicitud, String idTransmision, 
-                AEAT103Iv3PeticionDatosEspecificos datosEspecificosPeticion) {
+                CDISFWS01v2PeticionDatosEspecificos datosEspecificosPeticion) {
         
         return this.peticionSincrona(
                 codigoEstado,
@@ -123,12 +123,12 @@ public class AEAT103Iv3RecobrimentFacade
     }
     
     
-    private AEAT103Iv3PeticionDatosEspecificos establecerDatosEspecificosPeticion(){
+    private CDISFWS01v2PeticionDatosEspecificos establecerDatosEspecificosPeticion(){
         return null;
     }
     
     
-    public RespuestaClientAdapter<AEAT103Iv3RespuestaDatosEspecificos> peticionSincrona(
+    public RespuestaClientAdapter<CDISFWS01v2RespuestaDatosEspecificos> peticionSincrona(
                 String codigoEstado, String codigoEstadoSecundario, 
                 String literalError, String literalErrorSec, Integer tiempoEstimadoRespuesta, 
                 String codigoCertificado, String idPeticion, 
@@ -146,7 +146,7 @@ public class AEAT103Iv3RecobrimentFacade
                 ) {
         
         
-        AEAT103Iv3PeticionDatosEspecificos datosEspecificosPeticion = 
+        CDISFWS01v2PeticionDatosEspecificos datosEspecificosPeticion = 
                 establecerDatosEspecificosPeticion();
         
         
@@ -188,20 +188,20 @@ public class AEAT103Iv3RecobrimentFacade
     }
 
     @Override
-    protected AEAT103Iv3RespuestaDatosEspecificos element2DatosEspecificos(Element elementDatosEspecificos) {
+    protected CDISFWS01v2RespuestaDatosEspecificos element2DatosEspecificos(Element elementDatosEspecificos) {
         
-        AEAT103Iv3RespuestaDatosEspecificos datosEspecificos;
+        CDISFWS01v2RespuestaDatosEspecificos datosEspecificos;
         try {
-            XmlManager<AEAT103Iv3RespuestaDatosEspecificos> manager
-                    = new XmlManager<AEAT103Iv3RespuestaDatosEspecificos>(AEAT103Iv3RespuestaDatosEspecificos.class);
+            XmlManager<CDISFWS01v2RespuestaDatosEspecificos> manager
+                    = new XmlManager<CDISFWS01v2RespuestaDatosEspecificos>(CDISFWS01v2RespuestaDatosEspecificos.class);
             datosEspecificos = manager.generateItem(elementDatosEspecificos);
             
             return datosEspecificos;
             
         } catch (JAXBException ex) {
-            Logger.getLogger(AEAT103Iv3RecobrimentFacade.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CDISFWS01v2RecobrimentFacade.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
-            Logger.getLogger(AEAT103Iv3RecobrimentFacade.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CDISFWS01v2RecobrimentFacade.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }

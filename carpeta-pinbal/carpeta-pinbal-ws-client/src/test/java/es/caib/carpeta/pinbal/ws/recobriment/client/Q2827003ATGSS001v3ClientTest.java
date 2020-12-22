@@ -17,7 +17,7 @@ package es.caib.carpeta.pinbal.ws.recobriment.client;
 
 import es.caib.scsp.pinbal.ws.recobriment.client.DadesConnexioRecobriment;
 import es.caib.scsp.pinbal.ws.recobriment.facade.RespuestaClientAdapter;
-import es.caib.carpeta.pinbal.ws.recobriment.datosespecificos.Q2827003ATGSS001v3RespuestaDatosEspecificos;
+import es.caib.carpeta.pinbal.ws.recobriment.datosespecificos.SVDDGPCIWS02v3RespuestaDatosEspecificos;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

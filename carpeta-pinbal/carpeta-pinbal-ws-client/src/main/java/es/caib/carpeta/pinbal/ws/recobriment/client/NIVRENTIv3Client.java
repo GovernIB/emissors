@@ -6,7 +6,7 @@ import es.caib.pinbal.ws.recobriment.TipoDocumentacion;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import es.caib.scsp.pinbal.ws.recobriment.facade.RespuestaClientAdapter;
-import es.caib.carpeta.pinbal.ws.recobriment.datosespecificos.NIVRENTIv3RespuestaDatosEspecificos;
+import es.caib.carpeta.pinbal.ws.recobriment.datosespecificos.VDISFWS01v2RespuestaDatosEspecificos;
 import es.caib.carpeta.pinbal.ws.recobriment.facade.NIVRENTIv3RecobrimentFacade;
 
 
@@ -143,9 +143,9 @@ public class NIVRENTIv3Client {
    
     
     
-    public RespuestaClientAdapter<NIVRENTIv3RespuestaDatosEspecificos> peticionSincrona(){
+    public RespuestaClientAdapter<VDISFWS01v2RespuestaDatosEspecificos> peticionSincrona(){
         
-        RespuestaClientAdapter<NIVRENTIv3RespuestaDatosEspecificos> respuestaClient =
+        RespuestaClientAdapter<VDISFWS01v2RespuestaDatosEspecificos> respuestaClient =
             facade.peticionSincrona(codigoEstado, codigoEstadoSecundario, literalError, literalErrorSec, tiempoEstimadoRespuesta, codigoCertificado, idPeticion, numElementos, timeStamp, nifEmisor, nombreEmisor, nifFuncionario, nombreCompletoFuncionario, seudonimo, codProcedimiento, nombreProcedimiento, codigoUnidadTramitadora, consentimiento, finalidad, idExpediente, identificadorSolicitante, nombreSolicitante, unidadTramitadora, apellido1, apellido2, documentacion, nombre, nombreCompleto, tipoDocumentacion, fechaGeneracion, idSolicitud, idTransmision, ejercicio);
         return respuestaClient;
     }

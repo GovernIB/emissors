@@ -33,47 +33,35 @@
             <version>1.0.0</version>
         </dependency>
         
-
         <dependency>
             <groupId>es.caib.scsp</groupId>
-            <artifactId>scsp-schemas-xsd-SCDHPAJUv3</artifactId>
-            <version>1.0.0</version>
-            <type>jar</type>
-        </dependency>
-
-        
-        <dependency>
-            <groupId>es.caib.scsp</groupId>
-            <artifactId>scsp-schemas-xsd-AEAT103Iv3</artifactId>
+            <artifactId>scsp-schemas-xsd-CDISFWS01v2</artifactId>
             <version>1.0.0</version>
             <type>jar</type>
         </dependency>
         
-        
         <dependency>
             <groupId>es.caib.scsp</groupId>
-            <artifactId>scsp-schemas-xsd-NIVRENTIv3</artifactId>
+            <artifactId>scsp-schemas-xsd-SVDDGPCIWS02v3</artifactId>
             <version>1.0.0</version>
             <type>jar</type>
         </dependency>
         
+        <dependency>
+            <groupId>es.caib.scsp</groupId>
+            <artifactId>scsp-schemas-xsd-SVDDGPVIWS02v3</artifactId>
+            <version>1.0.0</version>
+            <type>jar</type>
+        </dependency>
         
         <dependency>
             <groupId>es.caib.scsp</groupId>
-            <artifactId>scsp-schemas-xsd-SVDCCAACPASWS01v3</artifactId>
+            <artifactId>scsp-schemas-xsd-VDISFWS01v2</artifactId>
             <version>1.0.0</version>
             <type>jar</type>
         </dependency>
         
         
-        <dependency>
-            <groupId>es.caib.scsp</groupId>
-            <artifactId>scsp-schemas-xsd-Q2827003ATGSS001v3</artifactId>
-            <version>1.0.0</version>
-            <type>jar</type>
-        </dependency>
-        
-     
         <dependency>
             <groupId>es.caib.scsp</groupId>
             <artifactId>pinbal-ws-client</artifactId>
