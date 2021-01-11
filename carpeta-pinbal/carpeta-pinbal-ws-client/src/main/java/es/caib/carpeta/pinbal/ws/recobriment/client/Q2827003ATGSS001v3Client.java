@@ -7,7 +7,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import es.caib.scsp.pinbal.ws.recobriment.facade.RespuestaClientAdapter;
 import es.caib.carpeta.pinbal.ws.recobriment.datosespecificos.SVDDGPCIWS02v3RespuestaDatosEspecificos;
-import es.caib.carpeta.pinbal.ws.recobriment.facade.Q2827003ATGSS001v3RecobrimentFacade;
+import es.caib.carpeta.pinbal.ws.recobriment.facade.SVDDGPVIWS02v3RecobrimentFacade;
 
 
 /**
@@ -82,14 +82,14 @@ public class Q2827003ATGSS001v3Client {
     
     protected static final Logger LOG = Logger.getLogger(Q2827003ATGSS001v3Client.class.getName());
 
-    private Q2827003ATGSS001v3RecobrimentFacade facade;
+    private SVDDGPVIWS02v3RecobrimentFacade facade;
     
     public Q2827003ATGSS001v3Client(){
         this(APP);
     }
     
     public Q2827003ATGSS001v3Client(String app){
-        this.facade = new Q2827003ATGSS001v3RecobrimentFacade(app);
+        this.facade = new SVDDGPVIWS02v3RecobrimentFacade(app);
     }
     
     public void dummy(){

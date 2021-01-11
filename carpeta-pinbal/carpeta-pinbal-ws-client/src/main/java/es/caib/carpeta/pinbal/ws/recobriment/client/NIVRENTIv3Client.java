@@ -7,7 +7,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import es.caib.scsp.pinbal.ws.recobriment.facade.RespuestaClientAdapter;
 import es.caib.carpeta.pinbal.ws.recobriment.datosespecificos.VDISFWS01v2RespuestaDatosEspecificos;
-import es.caib.carpeta.pinbal.ws.recobriment.facade.NIVRENTIv3RecobrimentFacade;
+import es.caib.carpeta.pinbal.ws.recobriment.facade.SVDDGPCIWS02v3RecobrimentFacade;
 
 
 /**
@@ -123,14 +123,14 @@ public class NIVRENTIv3Client {
     
     protected static final Logger LOG = Logger.getLogger(NIVRENTIv3Client.class.getName());
 
-    private NIVRENTIv3RecobrimentFacade facade;
+    private SVDDGPCIWS02v3RecobrimentFacade facade;
     
     public NIVRENTIv3Client(){
         this(APP);
     }
     
     public NIVRENTIv3Client(String app){
-        this.facade = new NIVRENTIv3RecobrimentFacade(app);
+        this.facade = new SVDDGPCIWS02v3RecobrimentFacade(app);
     }
     
     public void dummy(){

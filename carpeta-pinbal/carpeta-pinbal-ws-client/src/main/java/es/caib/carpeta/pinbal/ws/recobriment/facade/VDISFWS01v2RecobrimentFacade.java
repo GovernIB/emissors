@@ -15,20 +15,17 @@
  */
 package es.caib.carpeta.pinbal.ws.recobriment.facade;
 
+import es.caib.carpeta.pinbal.ws.recobriment.datosespecificos.VDISFWS01v2PeticionDatosEspecificos;
+import es.caib.carpeta.pinbal.ws.recobriment.datosespecificos.VDISFWS01v2RespuestaDatosEspecificos;
 import es.caib.pinbal.ws.recobriment.Consentimiento;
 import es.caib.pinbal.ws.recobriment.TipoDocumentacion;
 import es.caib.scsp.pinbal.ws.recobriment.facade.RecobrimentFacade;
 import es.caib.scsp.pinbal.ws.recobriment.facade.RespuestaClientAdapter;
-import es.caib.carpeta.pinbal.ws.recobriment.datosespecificos.VDISFWS01v2PeticionDatosEspecificos;
-import es.caib.carpeta.pinbal.ws.recobriment.datosespecificos.VDISFWS01v2PeticionDatosEspecificos;
-import es.caib.carpeta.pinbal.ws.recobriment.datosespecificos.VDISFWS01v2RespuestaDatosEspecificos;
-import es.caib.carpeta.pinbal.ws.recobriment.datosespecificos.VDISFWS01v2RespuestaDatosEspecificos;
 import es.caib.scsp.utils.xml.XmlManager;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.xml.bind.JAXBException;
-import javax.xml.bind.annotation.XmlSchema;
 import javax.xml.parsers.ParserConfigurationException;
 import org.w3c.dom.Element;
 
@@ -36,15 +33,11 @@ import org.w3c.dom.Element;
  *
  * @author gdeignacio
  */
-public class NIVRENTIv3RecobrimentFacade
+public class VDISFWS01v2RecobrimentFacade
         extends RecobrimentFacade<
         VDISFWS01v2PeticionDatosEspecificos, VDISFWS01v2RespuestaDatosEspecificos> {
 
-    
-     
-    
-    
-    public NIVRENTIv3RecobrimentFacade(String app) {
+    public VDISFWS01v2RecobrimentFacade(String app) {
         super(app);
     }
 
@@ -59,23 +52,14 @@ public class NIVRENTIv3RecobrimentFacade
         Element elementDatosEspecificos;
         
         try {
-            
-            Logger.getLogger(NIVRENTIv3RecobrimentFacade.class.getName()).log(Level.INFO, datosEspecificosPeticion.toString());
-            
             XmlManager<VDISFWS01v2PeticionDatosEspecificos> manager
                     = new XmlManager<VDISFWS01v2PeticionDatosEspecificos>(VDISFWS01v2PeticionDatosEspecificos.class);
-            
-              XmlSchema xmlSchemaAnnotation = manager.getXmlSchemaAnnotation();
-  
-            System.out.println("NAMESPACE: " + xmlSchemaAnnotation.namespace());
-            System.out.println("LOCATION: " + xmlSchemaAnnotation.location());
-            
             elementDatosEspecificos = manager.generateElement(datosEspecificosPeticion);
             return elementDatosEspecificos;
-        } catch (ParserConfigurationException ex) {
-            Logger.getLogger(NIVRENTIv3RecobrimentFacade.class.getName()).log(Level.SEVERE, null, ex);
         } catch (JAXBException ex) {
-            Logger.getLogger(NIVRENTIv3RecobrimentFacade.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(VDISFWS01v2RecobrimentFacade.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ParserConfigurationException ex) {
+            Logger.getLogger(VDISFWS01v2RecobrimentFacade.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
             
@@ -137,14 +121,16 @@ public class NIVRENTIv3RecobrimentFacade
     }
     
     
-    private VDISFWS01v2PeticionDatosEspecificos establecerDatosEspecificosPeticion(
-            Integer ejercicio
-    ){
-       
-        
+    private VDISFWS01v2PeticionDatosEspecificos establecerDatosEspecificosPeticion(String codigoProvincia){
+    
         VDISFWS01v2PeticionDatosEspecificos datosEspecificos = new VDISFWS01v2PeticionDatosEspecificos();
        
-        datosEspecificos.setEjercicio(ejercicio);
+        es.caib.scsp.esquemas.VDISFWS01v2.peticion.datosespecificos.Consulta consulta = 
+                new es.caib.scsp.esquemas.VDISFWS01v2.peticion.datosespecificos.Consulta();
+        
+        consulta.setCodigoProvincia(codigoProvincia);
+        
+        datosEspecificos.setConsulta(consulta);
         
         return datosEspecificos;
     }
@@ -164,13 +150,12 @@ public class NIVRENTIv3RecobrimentFacade
                 String unidadTramitadora, String apellido1, String apellido2, 
                 String documentacion, String nombre, String nombreCompleto, 
                 TipoDocumentacion tipoDocumentacion, String fechaGeneracion, 
-                String idSolicitud, String idTransmision,
-                Integer ejercicio
-                ) {
+                String idSolicitud, String idTransmision, String codigoProvincia
+    ) {
         
         
         VDISFWS01v2PeticionDatosEspecificos datosEspecificosPeticion = 
-                establecerDatosEspecificosPeticion(ejercicio);
+                establecerDatosEspecificosPeticion(codigoProvincia);
         
         
         return this.peticionSincronaEspecifica(
@@ -222,9 +207,9 @@ public class NIVRENTIv3RecobrimentFacade
             return datosEspecificos;
             
         } catch (JAXBException ex) {
-            Logger.getLogger(NIVRENTIv3RecobrimentFacade.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(VDISFWS01v2RecobrimentFacade.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
-            Logger.getLogger(NIVRENTIv3RecobrimentFacade.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(VDISFWS01v2RecobrimentFacade.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }

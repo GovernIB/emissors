@@ -7,7 +7,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import es.caib.scsp.pinbal.ws.recobriment.facade.RespuestaClientAdapter;
 import es.caib.carpeta.pinbal.ws.recobriment.datosespecificos.SVDCCAACPASWS01v3RespuestaDatosEspecificos;
-import es.caib.carpeta.pinbal.ws.recobriment.facade.SVDCCAACPASWS01v3RecobrimentFacade;
+import es.caib.carpeta.pinbal.ws.recobriment.facade.VDISFWS01v2RecobrimentFacade;
 
 
 /**
@@ -83,14 +83,14 @@ public class SVDCCAACPASWS01v3Client {
     
     protected static final Logger LOG = Logger.getLogger(SVDCCAACPASWS01v3Client.class.getName());
 
-    private SVDCCAACPASWS01v3RecobrimentFacade facade;
+    private VDISFWS01v2RecobrimentFacade facade;
     
     public SVDCCAACPASWS01v3Client(){
         this(APP);
     }
     
     public SVDCCAACPASWS01v3Client(String app){
-        this.facade = new SVDCCAACPASWS01v3RecobrimentFacade(app);
+        this.facade = new VDISFWS01v2RecobrimentFacade(app);
     }
     
     public void dummy(){

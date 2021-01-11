@@ -20,8 +20,6 @@ import es.caib.pinbal.ws.recobriment.TipoDocumentacion;
 import es.caib.scsp.pinbal.ws.recobriment.facade.RecobrimentFacade;
 import es.caib.scsp.pinbal.ws.recobriment.facade.RespuestaClientAdapter;
 import es.caib.carpeta.pinbal.ws.recobriment.datosespecificos.CDISFWS01v2PeticionDatosEspecificos;
-import es.caib.carpeta.pinbal.ws.recobriment.datosespecificos.CDISFWS01v2PeticionDatosEspecificos;
-import es.caib.carpeta.pinbal.ws.recobriment.datosespecificos.CDISFWS01v2RespuestaDatosEspecificos;
 import es.caib.carpeta.pinbal.ws.recobriment.datosespecificos.CDISFWS01v2RespuestaDatosEspecificos;
 import es.caib.scsp.utils.xml.XmlManager;
 import java.io.IOException;

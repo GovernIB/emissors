@@ -20,8 +20,6 @@ import es.caib.pinbal.ws.recobriment.TipoDocumentacion;
 import es.caib.scsp.pinbal.ws.recobriment.facade.RecobrimentFacade;
 import es.caib.scsp.pinbal.ws.recobriment.facade.RespuestaClientAdapter;
 import es.caib.carpeta.pinbal.ws.recobriment.datosespecificos.SVDDGPCIWS02v3PeticionDatosEspecificos;
-import es.caib.carpeta.pinbal.ws.recobriment.datosespecificos.SVDDGPCIWS02v3PeticionDatosEspecificos;
-import es.caib.carpeta.pinbal.ws.recobriment.datosespecificos.SVDDGPCIWS02v3RespuestaDatosEspecificos;
 import es.caib.carpeta.pinbal.ws.recobriment.datosespecificos.SVDDGPCIWS02v3RespuestaDatosEspecificos;
 import es.caib.scsp.utils.xml.XmlManager;
 import java.io.IOException;
@@ -35,11 +33,11 @@ import org.w3c.dom.Element;
  *
  * @author gdeignacio
  */
-public class Q2827003ATGSS001v3RecobrimentFacade
+public class SVDDGPVIWS02v3RecobrimentFacade
         extends RecobrimentFacade<
         SVDDGPCIWS02v3PeticionDatosEspecificos, SVDDGPCIWS02v3RespuestaDatosEspecificos> {
 
-    public Q2827003ATGSS001v3RecobrimentFacade(String app) {
+    public SVDDGPVIWS02v3RecobrimentFacade(String app) {
         super(app);
     }
 
@@ -61,9 +59,9 @@ public class Q2827003ATGSS001v3RecobrimentFacade
             elementDatosEspecificos = manager.generateElement(datosEspecificosPeticion);
             return elementDatosEspecificos;
         } catch (JAXBException ex) {
-            Logger.getLogger(Q2827003ATGSS001v3RecobrimentFacade.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SVDDGPVIWS02v3RecobrimentFacade.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ParserConfigurationException ex) {
-            Logger.getLogger(Q2827003ATGSS001v3RecobrimentFacade.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SVDDGPVIWS02v3RecobrimentFacade.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
             
@@ -202,9 +200,9 @@ public class Q2827003ATGSS001v3RecobrimentFacade
             return datosEspecificos;
             
         } catch (JAXBException ex) {
-            Logger.getLogger(Q2827003ATGSS001v3RecobrimentFacade.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SVDDGPVIWS02v3RecobrimentFacade.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
-            Logger.getLogger(Q2827003ATGSS001v3RecobrimentFacade.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SVDDGPVIWS02v3RecobrimentFacade.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }
