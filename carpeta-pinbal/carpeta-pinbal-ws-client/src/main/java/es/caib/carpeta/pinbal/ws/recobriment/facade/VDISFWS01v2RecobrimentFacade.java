@@ -121,16 +121,67 @@ public class VDISFWS01v2RecobrimentFacade
     }
     
     
-    private VDISFWS01v2PeticionDatosEspecificos establecerDatosEspecificosPeticion(String codigoProvincia){
+    private VDISFWS01v2PeticionDatosEspecificos establecerDatosEspecificosPeticion(
+            String solicitanteApellido1,
+            String solicitanteApellido2,
+            String solicitanteIdFuncionario,
+            String solicitanteNombre,
+            String solicitanteNumFuncionario,
+            String solicitanteCodOrganizacion,
+            String solicitanteNombreOrganizacion,
+            String solicitanteTelefono,
+            String solicitanteTipo, String solicitudDatosNacimientoFecha, String solicitudDatosNacimientoPais, String solicidudDatosNacimientoProvincia
+    ){
     
         VDISFWS01v2PeticionDatosEspecificos datosEspecificos = new VDISFWS01v2PeticionDatosEspecificos();
        
+        /*
         es.caib.scsp.esquemas.VDISFWS01v2.peticion.datosespecificos.Consulta consulta = 
                 new es.caib.scsp.esquemas.VDISFWS01v2.peticion.datosespecificos.Consulta();
         
         consulta.setCodigoProvincia(codigoProvincia);
         
         datosEspecificos.setConsulta(consulta);
+        */
+        
+        
+        // Solicitante Datos
+        
+        es.caib.scsp.esquemas.VDISFWS01v2.peticion.datosespecificos.SolicitanteDatos solicitanteDatos = new es.caib.scsp.esquemas.VDISFWS01v2.peticion.datosespecificos.SolicitanteDatos();
+        
+        es.caib.scsp.esquemas.VDISFWS01v2.peticion.datosespecificos.Organizacion organizacion = new es.caib.scsp.esquemas.VDISFWS01v2.peticion.datosespecificos.Organizacion();
+        
+        organizacion.setCodOrganizacion(solicitanteCodOrganizacion);
+        organizacion.setNombreOrganizacion(solicitanteNombreOrganizacion);
+        
+        solicitanteDatos.setApellido1(solicitanteApellido1);
+        solicitanteDatos.setApellido2(solicitanteApellido2);
+        solicitanteDatos.setIdFuncionario(solicitanteIdFuncionario);
+        solicitanteDatos.setNombre(solicitanteNombre);
+        solicitanteDatos.setNumFuncionario(solicitanteNumFuncionario);
+        solicitanteDatos.setOrganizacion(organizacion);
+        solicitanteDatos.setTelefono(solicitanteTelefono);
+        solicitanteDatos.setTipo(solicitanteTipo);
+        
+        datosEspecificos.setSolicitanteDatos(solicitanteDatos);
+        
+        
+        
+        
+        // Solicitud
+        
+        es.caib.scsp.esquemas.VDISFWS01v2.peticion.datosespecificos.Solicitud solicitud = new es.caib.scsp.esquemas.VDISFWS01v2.peticion.datosespecificos.Solicitud();
+        
+        es.caib.scsp.esquemas.VDISFWS01v2.peticion.datosespecificos.DatosNacimiento datosNacimiento = new es.caib.scsp.esquemas.VDISFWS01v2.peticion.datosespecificos.DatosNacimiento();
+        datosNacimiento.setFecha(solicitudDatosNacimientoFecha);
+        datosNacimiento.setPais(solicitudDatosNacimientoPais);
+        datosNacimiento.setProvincia(solicidudDatosNacimientoProvincia);
+        
+        
+        datosEspecificos.setSolicitud(solicitud);
+       
+        
+        
         
         return datosEspecificos;
     }
