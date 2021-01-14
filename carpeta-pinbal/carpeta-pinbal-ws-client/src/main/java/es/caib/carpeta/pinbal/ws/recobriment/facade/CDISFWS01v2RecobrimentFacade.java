@@ -121,8 +121,37 @@ public class CDISFWS01v2RecobrimentFacade
     }
     
     
-    private CDISFWS01v2PeticionDatosEspecificos establecerDatosEspecificosPeticion(){
-        return null;
+    private CDISFWS01v2PeticionDatosEspecificos establecerDatosEspecificosPeticion() {
+
+        CDISFWS01v2PeticionDatosEspecificos datosEspecificos = new CDISFWS01v2PeticionDatosEspecificos();
+        es.caib.scsp.esquemas.CDISFWS01v2.peticion.datosespecificos.DatosTitular datosTitular = new es.caib.scsp.esquemas.CDISFWS01v2.peticion.datosespecificos.DatosTitular();
+        
+        
+        
+        datosEspecificos.setDatosTitular(datosTitular);
+        
+        es.caib.scsp.esquemas.CDISFWS01v2.peticion.datosespecificos.SolicitanteDatos solicitanteDatos = new es.caib.scsp.esquemas.CDISFWS01v2.peticion.datosespecificos.SolicitanteDatos();
+        es.caib.scsp.esquemas.CDISFWS01v2.peticion.datosespecificos.Organizacion organizacion = new es.caib.scsp.esquemas.CDISFWS01v2.peticion.datosespecificos.Organizacion();
+        organizacion.setCodOrganizacion(solicitanteCodOrganizacion);
+        organizacion.setNombreOrganizacion(solicitanteNombreOrganizacion);
+        solicitanteDatos.setApellido1(solicitanteApellido1);
+        solicitanteDatos.setApellido2(solicitanteApellido2);
+        solicitanteDatos.setIdFuncionario(solicitanteIdFuncionario);
+        solicitanteDatos.setNombre(solicitanteNombre);
+        solicitanteDatos.setNumFuncionario(solicitanteNumFuncionario);
+        solicitanteDatos.setOrganizacion(organizacion);
+        solicitanteDatos.setTelefono(solicitanteTelefono);
+        solicitanteDatos.setTipo(solicitanteTipo);
+        datosEspecificos.setSolicitanteDatos(solicitanteDatos);
+    
+        
+        // Solicitud
+        es.caib.scsp.esquemas.CDISFWS01v2.peticion.datosespecificos.Solicitud solicitud = new es.caib.scsp.esquemas.CDISFWS01v2.peticion.datosespecificos.Solicitud();
+        solicitud.setNumSoporte(solicitudNumSoporte); 
+        datosEspecificos.setSolicitud(solicitud);
+
+        return datosEspecificos;
+
     }
     
     

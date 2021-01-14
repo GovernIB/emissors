@@ -130,22 +130,19 @@ public class VDISFWS01v2RecobrimentFacade
             String solicitanteCodOrganizacion,
             String solicitanteNombreOrganizacion,
             String solicitanteTelefono,
-            String solicitanteTipo, String solicitudDatosNacimientoFecha, String solicitudDatosNacimientoPais, String solicidudDatosNacimientoProvincia
+            String solicitanteTipo,
+            String solicitudDatosNacimientoFecha,
+            String solicitudDatosNacimientoPais,
+            String solicidudDatosNacimientoProvincia,
+            String solicitudDireccionNombreVia,
+            String solicitudDireccionPais,
+            String solicitudDireccionProvincia,
+            String solicitudDireccionTipoVia,
+            String solicitudNumSoporte,
+            String solicitudSexo
     ){
     
         VDISFWS01v2PeticionDatosEspecificos datosEspecificos = new VDISFWS01v2PeticionDatosEspecificos();
-       
-        /*
-        es.caib.scsp.esquemas.VDISFWS01v2.peticion.datosespecificos.Consulta consulta = 
-                new es.caib.scsp.esquemas.VDISFWS01v2.peticion.datosespecificos.Consulta();
-        
-        consulta.setCodigoProvincia(codigoProvincia);
-        
-        datosEspecificos.setConsulta(consulta);
-        */
-        
-        
-        // Solicitante Datos
         
         es.caib.scsp.esquemas.VDISFWS01v2.peticion.datosespecificos.SolicitanteDatos solicitanteDatos = new es.caib.scsp.esquemas.VDISFWS01v2.peticion.datosespecificos.SolicitanteDatos();
         
@@ -165,9 +162,6 @@ public class VDISFWS01v2RecobrimentFacade
         
         datosEspecificos.setSolicitanteDatos(solicitanteDatos);
         
-        
-        
-        
         // Solicitud
         
         es.caib.scsp.esquemas.VDISFWS01v2.peticion.datosespecificos.Solicitud solicitud = new es.caib.scsp.esquemas.VDISFWS01v2.peticion.datosespecificos.Solicitud();
@@ -176,13 +170,20 @@ public class VDISFWS01v2RecobrimentFacade
         datosNacimiento.setFecha(solicitudDatosNacimientoFecha);
         datosNacimiento.setPais(solicitudDatosNacimientoPais);
         datosNacimiento.setProvincia(solicidudDatosNacimientoProvincia);
+        solicitud.setDatosNacimiento(datosNacimiento);
         
+        es.caib.scsp.esquemas.VDISFWS01v2.peticion.datosespecificos.Direccion direccion = new es.caib.scsp.esquemas.VDISFWS01v2.peticion.datosespecificos.Direccion();
+        direccion.setNombreVia(solicitudDireccionNombreVia);
+        direccion.setPais(solicitudDireccionPais);
+        direccion.setProvincia(solicitudDireccionProvincia);
+        direccion.setTipoVia(solicitudDireccionTipoVia);
         
+        solicitud.setDireccion(direccion);
+        
+        solicitud.setNumSoporte(solicitudNumSoporte);
+        solicitud.setSexo(solicitudSexo);
         datosEspecificos.setSolicitud(solicitud);
        
-        
-        
-        
         return datosEspecificos;
     }
     
@@ -201,12 +202,49 @@ public class VDISFWS01v2RecobrimentFacade
                 String unidadTramitadora, String apellido1, String apellido2, 
                 String documentacion, String nombre, String nombreCompleto, 
                 TipoDocumentacion tipoDocumentacion, String fechaGeneracion, 
-                String idSolicitud, String idTransmision, String codigoProvincia
+                String idSolicitud, String idTransmision,
+                String solicitanteApellido1,
+                String solicitanteApellido2,
+                String solicitanteIdFuncionario,
+                String solicitanteNombre,
+                String solicitanteNumFuncionario,
+                String solicitanteCodOrganizacion,
+                String solicitanteNombreOrganizacion,
+                String solicitanteTelefono,
+                String solicitanteTipo,
+                String solicitudDatosNacimientoFecha,
+                String solicitudDatosNacimientoPais,
+                String solicidudDatosNacimientoProvincia,
+                String solicitudDireccionNombreVia,
+                String solicitudDireccionPais,
+                String solicitudDireccionProvincia,
+                String solicitudDireccionTipoVia,
+                String solicitudNumSoporte,
+                String solicitudSexo
     ) {
         
         
         VDISFWS01v2PeticionDatosEspecificos datosEspecificosPeticion = 
-                establecerDatosEspecificosPeticion(codigoProvincia);
+                establecerDatosEspecificosPeticion(
+                    solicitanteApellido1,
+                    solicitanteApellido2,
+                    solicitanteIdFuncionario,
+                    solicitanteNombre,
+                    solicitanteNumFuncionario,
+                    solicitanteCodOrganizacion,
+                    solicitanteNombreOrganizacion,
+                    solicitanteTelefono,
+                    solicitanteTipo,
+                    solicitudDatosNacimientoFecha,
+                    solicitudDatosNacimientoPais,
+                    solicidudDatosNacimientoProvincia,
+                    solicitudDireccionNombreVia,
+                    solicitudDireccionPais,
+                    solicitudDireccionProvincia,
+                    solicitudDireccionTipoVia,
+                    solicitudNumSoporte,
+                    solicitudSexo
+                );
         
         
         return this.peticionSincronaEspecifica(

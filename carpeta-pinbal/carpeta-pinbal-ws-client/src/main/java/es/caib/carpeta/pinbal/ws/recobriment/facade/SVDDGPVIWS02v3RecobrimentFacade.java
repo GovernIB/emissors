@@ -19,8 +19,8 @@ import es.caib.pinbal.ws.recobriment.Consentimiento;
 import es.caib.pinbal.ws.recobriment.TipoDocumentacion;
 import es.caib.scsp.pinbal.ws.recobriment.facade.RecobrimentFacade;
 import es.caib.scsp.pinbal.ws.recobriment.facade.RespuestaClientAdapter;
-import es.caib.carpeta.pinbal.ws.recobriment.datosespecificos.SVDDGPCIWS02v3PeticionDatosEspecificos;
-import es.caib.carpeta.pinbal.ws.recobriment.datosespecificos.SVDDGPCIWS02v3RespuestaDatosEspecificos;
+import es.caib.carpeta.pinbal.ws.recobriment.datosespecificos.SVDDGPVIWS02v3PeticionDatosEspecificos;
+import es.caib.carpeta.pinbal.ws.recobriment.datosespecificos.SVDDGPVIWS02v3RespuestaDatosEspecificos;
 import es.caib.scsp.utils.xml.XmlManager;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -35,7 +35,7 @@ import org.w3c.dom.Element;
  */
 public class SVDDGPVIWS02v3RecobrimentFacade
         extends RecobrimentFacade<
-        SVDDGPCIWS02v3PeticionDatosEspecificos, SVDDGPCIWS02v3RespuestaDatosEspecificos> {
+        SVDDGPVIWS02v3PeticionDatosEspecificos, SVDDGPVIWS02v3RespuestaDatosEspecificos> {
 
     public SVDDGPVIWS02v3RecobrimentFacade(String app) {
         super(app);
@@ -47,15 +47,15 @@ public class SVDDGPVIWS02v3RecobrimentFacade
      * @return
      */
     @Override
-    protected Element datosEspecificos2Element(SVDDGPCIWS02v3PeticionDatosEspecificos datosEspecificosPeticion){
+    protected Element datosEspecificos2Element(SVDDGPVIWS02v3PeticionDatosEspecificos datosEspecificosPeticion){
         
         if (datosEspecificosPeticion==null) return null;
         
         Element elementDatosEspecificos;
         
         try {
-            XmlManager<SVDDGPCIWS02v3PeticionDatosEspecificos> manager
-                    = new XmlManager<SVDDGPCIWS02v3PeticionDatosEspecificos>(SVDDGPCIWS02v3PeticionDatosEspecificos.class);
+            XmlManager<SVDDGPVIWS02v3PeticionDatosEspecificos> manager
+                    = new XmlManager<SVDDGPVIWS02v3PeticionDatosEspecificos>(SVDDGPVIWS02v3PeticionDatosEspecificos.class);
             elementDatosEspecificos = manager.generateElement(datosEspecificosPeticion);
             return elementDatosEspecificos;
         } catch (JAXBException ex) {
@@ -69,7 +69,7 @@ public class SVDDGPVIWS02v3RecobrimentFacade
     }
 
     @Override
-    protected RespuestaClientAdapter<SVDDGPCIWS02v3RespuestaDatosEspecificos> peticionSincronaEspecifica(
+    protected RespuestaClientAdapter<SVDDGPVIWS02v3RespuestaDatosEspecificos> peticionSincronaEspecifica(
                 String codigoEstado, String codigoEstadoSecundario, 
                 String literalError, String literalErrorSec, Integer tiempoEstimadoRespuesta, 
                 String codigoCertificado, String idPeticion, 
@@ -83,7 +83,7 @@ public class SVDDGPVIWS02v3RecobrimentFacade
                 String documentacion, String nombre, String nombreCompleto, 
                 TipoDocumentacion tipoDocumentacion, String fechaGeneracion, 
                 String idSolicitud, String idTransmision, 
-                SVDDGPCIWS02v3PeticionDatosEspecificos datosEspecificosPeticion) {
+                SVDDGPVIWS02v3PeticionDatosEspecificos datosEspecificosPeticion) {
         
         return this.peticionSincrona(
                 codigoEstado,
@@ -123,13 +123,34 @@ public class SVDDGPVIWS02v3RecobrimentFacade
     }
     
     
-    private SVDDGPCIWS02v3PeticionDatosEspecificos establecerDatosEspecificosPeticion(){
+    private SVDDGPVIWS02v3PeticionDatosEspecificos establecerDatosEspecificosPeticion(
+            String consultaNumeroSoporte, 
+            String consultaSexo, 
+            String solicitudDatosNacimientoFecha, 
+            String solicitudDatosNacimientoPais, 
+            String solicidudDatosNacimientoProvincia
+    ){
     
-        return null;
+        SVDDGPVIWS02v3PeticionDatosEspecificos datosEspecificos = new SVDDGPVIWS02v3PeticionDatosEspecificos();
+        
+        es.caib.scsp.esquemas.SVDDGPVIWS02v3.peticion.datosespecificos.Consulta consulta = new es.caib.scsp.esquemas.SVDDGPVIWS02v3.peticion.datosespecificos.Consulta();
+       
+        consulta.setNumeroSoporte(consultaNumeroSoporte);
+        consulta.setSexo(consultaSexo);
+        
+        es.caib.scsp.esquemas.SVDDGPVIWS02v3.peticion.datosespecificos.DatosNacimiento datosNacimiento = new es.caib.scsp.esquemas.SVDDGPVIWS02v3.peticion.datosespecificos.DatosNacimiento();
+        datosNacimiento.setFecha(solicitudDatosNacimientoFecha);
+        datosNacimiento.setPais(solicitudDatosNacimientoPais);
+        datosNacimiento.setProvincia(solicidudDatosNacimientoProvincia);
+        
+        consulta.setDatosNacimiento(datosNacimiento);
+        datosEspecificos.setConsulta(consulta);
+        
+        return datosEspecificos;
     }
     
     
-    public RespuestaClientAdapter<SVDDGPCIWS02v3RespuestaDatosEspecificos> peticionSincrona(
+    public RespuestaClientAdapter<SVDDGPVIWS02v3RespuestaDatosEspecificos> peticionSincrona(
                 String codigoEstado, String codigoEstadoSecundario, 
                 String literalError, String literalErrorSec, Integer tiempoEstimadoRespuesta, 
                 String codigoCertificado, String idPeticion, 
@@ -143,12 +164,21 @@ public class SVDDGPVIWS02v3RecobrimentFacade
                 String unidadTramitadora, String apellido1, String apellido2, 
                 String documentacion, String nombre, String nombreCompleto, 
                 TipoDocumentacion tipoDocumentacion, String fechaGeneracion, 
-                String idSolicitud, String idTransmision
+                String idSolicitud, String idTransmision,
+                String consultaNumeroSoporte, 
+                String consultaSexo, 
+                String solicitudDatosNacimientoFecha, 
+                String solicitudDatosNacimientoPais, 
+                String solicidudDatosNacimientoProvincia
                 ) {
         
         
-        SVDDGPCIWS02v3PeticionDatosEspecificos datosEspecificosPeticion = 
-                establecerDatosEspecificosPeticion();
+        SVDDGPVIWS02v3PeticionDatosEspecificos datosEspecificosPeticion = 
+                establecerDatosEspecificosPeticion(consultaNumeroSoporte, 
+                consultaSexo, 
+                solicitudDatosNacimientoFecha, 
+                solicitudDatosNacimientoPais, 
+                solicidudDatosNacimientoProvincia);
         
         
         return this.peticionSincronaEspecifica(
@@ -189,12 +219,12 @@ public class SVDDGPVIWS02v3RecobrimentFacade
     }
 
     @Override
-    protected SVDDGPCIWS02v3RespuestaDatosEspecificos element2DatosEspecificos(Element elementDatosEspecificos) {
+    protected SVDDGPVIWS02v3RespuestaDatosEspecificos element2DatosEspecificos(Element elementDatosEspecificos) {
         
-        SVDDGPCIWS02v3RespuestaDatosEspecificos datosEspecificos;
+        SVDDGPVIWS02v3RespuestaDatosEspecificos datosEspecificos;
         try {
-            XmlManager<SVDDGPCIWS02v3RespuestaDatosEspecificos> manager
-                    = new XmlManager<SVDDGPCIWS02v3RespuestaDatosEspecificos>(SVDDGPCIWS02v3RespuestaDatosEspecificos.class);
+            XmlManager<SVDDGPVIWS02v3RespuestaDatosEspecificos> manager
+                    = new XmlManager<SVDDGPVIWS02v3RespuestaDatosEspecificos>(SVDDGPVIWS02v3RespuestaDatosEspecificos.class);
             datosEspecificos = manager.generateItem(elementDatosEspecificos);
             
             return datosEspecificos;
