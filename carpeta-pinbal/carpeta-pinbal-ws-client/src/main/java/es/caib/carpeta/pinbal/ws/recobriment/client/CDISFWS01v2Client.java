@@ -14,7 +14,7 @@ import es.caib.carpeta.pinbal.ws.recobriment.facade.CDISFWS01v2RecobrimentFacade
  *
  * @author gdeignacio
  */
-public class AEAT103Iv3Client {
+public class CDISFWS01v2Client {
     
     private static String APP = "es.caib.carpeta.";
     
@@ -80,15 +80,15 @@ public class AEAT103Iv3Client {
     
   
     
-    protected static final Logger LOG = Logger.getLogger(AEAT103Iv3Client.class.getName());
+    protected static final Logger LOG = Logger.getLogger(CDISFWS01v2Client.class.getName());
 
     private CDISFWS01v2RecobrimentFacade facade;
     
-    public AEAT103Iv3Client(){
+    public CDISFWS01v2Client(){
         this(APP);
     }
     
-    public AEAT103Iv3Client(String app){
+    public CDISFWS01v2Client(String app){
         this.facade = new CDISFWS01v2RecobrimentFacade(app);
     }
     

@@ -31,7 +31,7 @@ import org.junit.Test;
 public class AEAT103Iv3ClientTest {
     
     
-    private AEAT103Iv3Client client;
+    private CDISFWS01v2Client client;
     
     public AEAT103Iv3ClientTest() {
     }
@@ -54,7 +54,7 @@ public class AEAT103Iv3ClientTest {
         System.setProperty(app  + "pinbal.client.password", "carpeta_pinbal");
         System.setProperty(app  + "pinbal.client.baseURL", "https://proves.caib.es/pinbal");
         
-        client = new AEAT103Iv3Client(app);
+        client = new CDISFWS01v2Client(app);
         
         
         

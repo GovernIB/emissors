@@ -121,17 +121,67 @@ public class CDISFWS01v2RecobrimentFacade
     }
     
     
-    private CDISFWS01v2PeticionDatosEspecificos establecerDatosEspecificosPeticion() {
+    private CDISFWS01v2PeticionDatosEspecificos establecerDatosEspecificosPeticion(
+            String datosTitularApellido1,
+            String datosTitularApellido2,
+            String titularDatosVia,
+            String titularLocalidad,
+            String titularProvincia,
+            String titularNacimientoFecha,
+            String titularNacimientoPais,
+            String titularNacimientoProvincia,
+            String titularNacimientoLocalidad,
+            String titularFechaCaducidad,
+            String titularIdentificador,
+            String titularNacionalidad,
+            String titularNomMadre,
+            String titularNomPadre,
+            String titularNombre,
+            String titularNumSoporte,
+            String titularSexo,
+            String solicitanteCodOrganizacion,
+            String solicitanteNombreOrganizacion,
+            String solicitanteApellido1,
+            String solicitanteApellido2,
+            String solicitanteIdFuncionario,
+            String solicitanteNombre,
+            String solicitanteNumFuncionario,
+            String solicitanteTelefono,
+            String solicitanteTipo,
+            String solicitudNumSoporte
+    ) {
 
         CDISFWS01v2PeticionDatosEspecificos datosEspecificos = new CDISFWS01v2PeticionDatosEspecificos();
+        
         es.caib.scsp.esquemas.CDISFWS01v2.peticion.datosespecificos.DatosTitular datosTitular = new es.caib.scsp.esquemas.CDISFWS01v2.peticion.datosespecificos.DatosTitular();
         
+        datosTitular.setApellido1(datosTitularApellido1);
+        datosTitular.setApellido2(datosTitularApellido2);
         
+        es.caib.scsp.esquemas.CDISFWS01v2.peticion.datosespecificos.DatosDireccionType datosDireccion = new es.caib.scsp.esquemas.CDISFWS01v2.peticion.datosespecificos.DatosDireccionType();
+        datosDireccion.setDatosVia(titularDatosVia);
+        datosDireccion.setLocalidad(titularLocalidad);
+        datosDireccion.setProvincia(titularProvincia);
+        datosTitular.setDatosDireccion(datosDireccion);
         
+        es.caib.scsp.esquemas.CDISFWS01v2.peticion.datosespecificos.DatosNacimientoType datosNacimiento = new es.caib.scsp.esquemas.CDISFWS01v2.peticion.datosespecificos.DatosNacimientoType();
+        datosNacimiento.setFecha(titularNacimientoFecha);
+        datosNacimiento.setProvincia(titularNacimientoProvincia);
+        datosNacimiento.setLocalidad(titularNacimientoLocalidad);
+        datosTitular.setDatosNacimiento(datosNacimiento);
+        datosTitular.setFechaCaducidad(titularFechaCaducidad);
+        datosTitular.setIdentificador(titularIdentificador);
+        datosTitular.setNacionalidad(titularNacionalidad);
+        datosTitular.setNomMadre(titularNomMadre);
+        datosTitular.setNomPadre(titularNomPadre);
+        datosTitular.setNombre(titularNombre);
+        datosTitular.setNumSoporte(titularNumSoporte);
+        datosTitular.setSexo(titularSexo);
         datosEspecificos.setDatosTitular(datosTitular);
         
         es.caib.scsp.esquemas.CDISFWS01v2.peticion.datosespecificos.SolicitanteDatos solicitanteDatos = new es.caib.scsp.esquemas.CDISFWS01v2.peticion.datosespecificos.SolicitanteDatos();
         es.caib.scsp.esquemas.CDISFWS01v2.peticion.datosespecificos.Organizacion organizacion = new es.caib.scsp.esquemas.CDISFWS01v2.peticion.datosespecificos.Organizacion();
+        
         organizacion.setCodOrganizacion(solicitanteCodOrganizacion);
         organizacion.setNombreOrganizacion(solicitanteNombreOrganizacion);
         solicitanteDatos.setApellido1(solicitanteApellido1);
@@ -144,7 +194,6 @@ public class CDISFWS01v2RecobrimentFacade
         solicitanteDatos.setTipo(solicitanteTipo);
         datosEspecificos.setSolicitanteDatos(solicitanteDatos);
     
-        
         // Solicitud
         es.caib.scsp.esquemas.CDISFWS01v2.peticion.datosespecificos.Solicitud solicitud = new es.caib.scsp.esquemas.CDISFWS01v2.peticion.datosespecificos.Solicitud();
         solicitud.setNumSoporte(solicitudNumSoporte); 
@@ -156,25 +205,80 @@ public class CDISFWS01v2RecobrimentFacade
     
     
     public RespuestaClientAdapter<CDISFWS01v2RespuestaDatosEspecificos> peticionSincrona(
-                String codigoEstado, String codigoEstadoSecundario, 
-                String literalError, String literalErrorSec, Integer tiempoEstimadoRespuesta, 
-                String codigoCertificado, String idPeticion, 
-                String numElementos, String timeStamp, String nifEmisor, 
-                String nombreEmisor, String nifFuncionario, 
-                String nombreCompletoFuncionario, String seudonimo, String codProcedimiento, 
-                String nombreProcedimiento, 
-                String codigoUnidadTramitadora, Consentimiento consentimiento, 
-                String finalidad, String idExpediente, 
-                String identificadorSolicitante, String nombreSolicitante, 
-                String unidadTramitadora, String apellido1, String apellido2, 
-                String documentacion, String nombre, String nombreCompleto, 
-                TipoDocumentacion tipoDocumentacion, String fechaGeneracion, 
-                String idSolicitud, String idTransmision
+            String codigoEstado, String codigoEstadoSecundario,
+            String literalError, String literalErrorSec, Integer tiempoEstimadoRespuesta,
+            String codigoCertificado, String idPeticion,
+            String numElementos, String timeStamp, String nifEmisor,
+            String nombreEmisor, String nifFuncionario,
+            String nombreCompletoFuncionario, String seudonimo, String codProcedimiento,
+            String nombreProcedimiento,
+            String codigoUnidadTramitadora, Consentimiento consentimiento,
+            String finalidad, String idExpediente,
+            String identificadorSolicitante, String nombreSolicitante,
+            String unidadTramitadora, String apellido1, String apellido2,
+            String documentacion, String nombre, String nombreCompleto,
+            TipoDocumentacion tipoDocumentacion, String fechaGeneracion,
+            String idSolicitud, String idTransmision,
+            String datosTitularApellido1,
+            String datosTitularApellido2,
+            String titularDatosVia,
+            String titularLocalidad,
+            String titularProvincia,
+            String titularNacimientoFecha,
+            String titularNacimientoPais,
+            String titularNacimientoProvincia,
+            String titularNacimientoLocalidad,
+            String titularFechaCaducidad,
+            String titularIdentificador,
+            String titularNacionalidad,
+            String titularNomMadre,
+            String titularNomPadre,
+            String titularNombre,
+            String titularNumSoporte,
+            String titularSexo,
+            String solicitanteCodOrganizacion,
+            String solicitanteNombreOrganizacion,
+            String solicitanteApellido1,
+            String solicitanteApellido2,
+            String solicitanteIdFuncionario,
+            String solicitanteNombre,
+            String solicitanteNumFuncionario,
+            String solicitanteTelefono,
+            String solicitanteTipo,
+            String solicitudNumSoporte
                 ) {
         
         
         CDISFWS01v2PeticionDatosEspecificos datosEspecificosPeticion = 
-                establecerDatosEspecificosPeticion();
+                establecerDatosEspecificosPeticion(
+                   datosTitularApellido1,
+                   datosTitularApellido2,
+                   titularDatosVia,
+                   titularLocalidad,
+                   titularProvincia,
+                   titularNacimientoFecha,
+                   titularNacimientoPais,
+                   titularNacimientoProvincia,
+                   titularNacimientoLocalidad,
+                   titularFechaCaducidad,
+                   titularIdentificador,
+                   titularNacionalidad,
+                   titularNomMadre,
+                   titularNomPadre,
+                   titularNombre,
+                   titularNumSoporte,
+                   titularSexo,
+                   solicitanteCodOrganizacion,
+                   solicitanteNombreOrganizacion,
+                   solicitanteApellido1,
+                   solicitanteApellido2,
+                   solicitanteIdFuncionario,
+                   solicitanteNombre,
+                   solicitanteNumFuncionario,
+                   solicitanteTelefono,
+                   solicitanteTipo,
+                   solicitudNumSoporte
+                );
         
         
         return this.peticionSincronaEspecifica(
