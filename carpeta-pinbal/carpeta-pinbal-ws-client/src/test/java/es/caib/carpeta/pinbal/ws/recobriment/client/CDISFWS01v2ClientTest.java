@@ -28,12 +28,12 @@ import org.junit.Test;
  *
  * @author gdeignacio
  */
-public class AEAT103Iv3ClientTest {
+public class CDISFWS01v2ClientTest {
     
     
     private CDISFWS01v2Client client;
     
-    public AEAT103Iv3ClientTest() {
+    public CDISFWS01v2ClientTest() {
     }
     
     @BeforeClass
@@ -81,10 +81,10 @@ public class AEAT103Iv3ClientTest {
      */
     @Test
     public void testPeticionSincrona() {
-        //System.out.println("peticionSincrona");
+        System.out.println("peticionSincrona");
         
-        //RespuestaClientAdapter<AEAT103Iv3RespuestaDatosEspecificos> expResult = null;
-        //RespuestaClientAdapter<AEAT103Iv3RespuestaDatosEspecificos> result = client.peticionSincrona();
+        //RespuestaClientAdapter<CDISFWS01v2RespuestaDatosEspecificos> expResult = null;
+        //RespuestaClientAdapter<CDISFWS01v2RespuestaDatosEspecificos> result = client.peticionSincrona();
         
         //System.out.println("APELLIDO  " + result.getTransmisionesClient().get(0).getDatosEspecificos().getResultado().getApellido1());
         

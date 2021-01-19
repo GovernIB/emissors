@@ -49,22 +49,19 @@ public class SVDDGPCIWS02v3RecobrimentFacade
      * @return
      */
     @Override
-    protected Element datosEspecificos2Element(SVDDGPCIWS02v3PeticionDatosEspecificos datosEspecificosPeticion){
-        
+    protected Element datosEspecificos2Element(SVDDGPCIWS02v3PeticionDatosEspecificos datosEspecificosPeticion) {
+
         Element elementDatosEspecificos;
-        
+
         try {
-            
-            Logger.getLogger(SVDDGPCIWS02v3RecobrimentFacade.class.getName()).log(Level.INFO, datosEspecificosPeticion.toString());
-            
             XmlManager<SVDDGPCIWS02v3PeticionDatosEspecificos> manager
                     = new XmlManager<SVDDGPCIWS02v3PeticionDatosEspecificos>(SVDDGPCIWS02v3PeticionDatosEspecificos.class);
-            
-              XmlSchema xmlSchemaAnnotation = manager.getXmlSchemaAnnotation();
-  
+
+            XmlSchema xmlSchemaAnnotation = manager.getXmlSchemaAnnotation();
+
             System.out.println("NAMESPACE: " + xmlSchemaAnnotation.namespace());
             System.out.println("LOCATION: " + xmlSchemaAnnotation.location());
-            
+
             elementDatosEspecificos = manager.generateElement(datosEspecificosPeticion);
             return elementDatosEspecificos;
         } catch (ParserConfigurationException ex) {
@@ -73,8 +70,7 @@ public class SVDDGPCIWS02v3RecobrimentFacade
             Logger.getLogger(SVDDGPCIWS02v3RecobrimentFacade.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
-            
- 
+
     }
 
     @Override
@@ -144,6 +140,70 @@ public class SVDDGPCIWS02v3RecobrimentFacade
         datosEspecificos.setConsulta(consulta);
         
         return datosEspecificos;
+    }
+    
+    private SVDDGPCIWS02v3PeticionDatosEspecificos establecerDatosEspecificosPeticion(){
+        return null;
+    }
+   
+    
+     public RespuestaClientAdapter<SVDDGPCIWS02v3RespuestaDatosEspecificos> peticionSincrona(
+                String codigoEstado, String codigoEstadoSecundario, 
+                String literalError, String literalErrorSec, Integer tiempoEstimadoRespuesta, 
+                String codigoCertificado, String idPeticion, 
+                String numElementos, String timeStamp, String nifEmisor, 
+                String nombreEmisor, String nifFuncionario, 
+                String nombreCompletoFuncionario, String seudonimo, String codProcedimiento, 
+                String nombreProcedimiento, 
+                String codigoUnidadTramitadora, Consentimiento consentimiento, 
+                String finalidad, String idExpediente, 
+                String identificadorSolicitante, String nombreSolicitante, 
+                String unidadTramitadora, String apellido1, String apellido2, 
+                String documentacion, String nombre, String nombreCompleto, 
+                TipoDocumentacion tipoDocumentacion, String fechaGeneracion, 
+                String idSolicitud, String idTransmision
+                ) {
+        
+        
+        SVDDGPCIWS02v3PeticionDatosEspecificos datosEspecificosPeticion = 
+                establecerDatosEspecificosPeticion();
+        
+        
+        return this.peticionSincronaEspecifica(
+                codigoEstado,
+                codigoEstadoSecundario,
+                literalError,
+                literalErrorSec,
+                tiempoEstimadoRespuesta,
+                codigoCertificado,
+                idPeticion,
+                numElementos,
+                timeStamp,
+                nifEmisor,
+                nombreEmisor,
+                nifFuncionario,
+                nombreCompletoFuncionario,
+                seudonimo,
+                codProcedimiento,
+                nombreProcedimiento,
+                codigoUnidadTramitadora,
+                consentimiento,
+                finalidad,
+                idExpediente,
+                identificadorSolicitante,
+                nombreSolicitante,
+                unidadTramitadora,
+                apellido1,
+                apellido2,
+                documentacion,
+                nombre,
+                nombreCompleto,
+                tipoDocumentacion,
+                fechaGeneracion,
+                idSolicitud,
+                idTransmision,
+                datosEspecificosPeticion
+        );
     }
     
     

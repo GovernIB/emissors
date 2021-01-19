@@ -28,26 +28,26 @@ public class CDISFWS01v2Client {
 
     //Atributos
 
-    private String codigoCertificado = "AEAT103I";
+    private String codigoCertificado = "CDISFWS01";
     private String idPeticion = null;
     private String numElementos = "1";
     private String timeStamp = null;
 
     //Emisor (obtingut de la documentació SCSP del servei)
 
-    private String nifEmisor = "S0711001H";
-    private String nombreEmisor = "CAIB";
+    private String nifEmisor = "S2816015H";
+    private String nombreEmisor = "DGP";
 
     //Funcionario
 
-    private String nifFuncionario = "78210244D";
-    private String nombreCompletoFuncionario = "SANS AGUILAR, CATALINA";
+    private String nifFuncionario = "43083795B";
+    private String nombreCompletoFuncionario = "Gabriel Francisco Ramis de Ayreflor Conrado";
     private String seudonimo = null;
 
     //Procedimiento
 
-    private String codProcedimiento = "2083134";
-    private String nombreProcedimiento = "Escolartizació";
+    private String codProcedimiento = "CODSVDR_GBA_20121107";
+    private String nombreProcedimiento = "PRUEBAS DE INTEGRACION PARA GOBIERNO DE BALEARES";
    
     //Solicitante
     private String codigoUnidadTramitadora = null;
@@ -61,7 +61,7 @@ public class CDISFWS01v2Client {
     //Titular
     private String apellido1 = "";
     private String apellido2 = "";
-    private String documentacion = "78215122B";
+    private String documentacion = "78206333P";
     private String nombre = "";
     private String nombreCompleto = "";
     private TipoDocumentacion tipoDocumentacion = TipoDocumentacion.NIF;

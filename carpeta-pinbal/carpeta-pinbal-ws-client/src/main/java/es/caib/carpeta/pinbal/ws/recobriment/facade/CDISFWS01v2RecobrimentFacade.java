@@ -203,6 +203,68 @@ public class CDISFWS01v2RecobrimentFacade
 
     }
     
+    private CDISFWS01v2PeticionDatosEspecificos establecerDatosEspecificosPeticion(){
+        return null;
+    }
+    
+    public RespuestaClientAdapter<CDISFWS01v2RespuestaDatosEspecificos> peticionSincrona(
+            String codigoEstado, String codigoEstadoSecundario,
+            String literalError, String literalErrorSec, Integer tiempoEstimadoRespuesta,
+            String codigoCertificado, String idPeticion,
+            String numElementos, String timeStamp, String nifEmisor,
+            String nombreEmisor, String nifFuncionario,
+            String nombreCompletoFuncionario, String seudonimo, String codProcedimiento,
+            String nombreProcedimiento,
+            String codigoUnidadTramitadora, Consentimiento consentimiento,
+            String finalidad, String idExpediente,
+            String identificadorSolicitante, String nombreSolicitante,
+            String unidadTramitadora, String apellido1, String apellido2,
+            String documentacion, String nombre, String nombreCompleto,
+            TipoDocumentacion tipoDocumentacion, String fechaGeneracion,
+            String idSolicitud, String idTransmision
+                ) {
+        
+        
+        CDISFWS01v2PeticionDatosEspecificos datosEspecificosPeticion = 
+                establecerDatosEspecificosPeticion();
+        
+        
+        return this.peticionSincronaEspecifica(
+                codigoEstado,
+                codigoEstadoSecundario,
+                literalError,
+                literalErrorSec,
+                tiempoEstimadoRespuesta,
+                codigoCertificado,
+                idPeticion,
+                numElementos,
+                timeStamp,
+                nifEmisor,
+                nombreEmisor,
+                nifFuncionario,
+                nombreCompletoFuncionario,
+                seudonimo,
+                codProcedimiento,
+                nombreProcedimiento,
+                codigoUnidadTramitadora,
+                consentimiento,
+                finalidad,
+                idExpediente,
+                identificadorSolicitante,
+                nombreSolicitante,
+                unidadTramitadora,
+                apellido1,
+                apellido2,
+                documentacion,
+                nombre,
+                nombreCompleto,
+                tipoDocumentacion,
+                fechaGeneracion,
+                idSolicitud,
+                idTransmision,
+                datosEspecificosPeticion
+        );
+    }
     
     public RespuestaClientAdapter<CDISFWS01v2RespuestaDatosEspecificos> peticionSincrona(
             String codigoEstado, String codigoEstadoSecundario,

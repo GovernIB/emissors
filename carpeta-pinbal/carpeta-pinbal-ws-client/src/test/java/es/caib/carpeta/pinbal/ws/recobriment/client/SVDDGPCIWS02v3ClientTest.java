@@ -17,7 +17,7 @@ package es.caib.carpeta.pinbal.ws.recobriment.client;
 
 import es.caib.scsp.pinbal.ws.recobriment.client.DadesConnexioRecobriment;
 import es.caib.scsp.pinbal.ws.recobriment.facade.RespuestaClientAdapter;
-import es.caib.carpeta.pinbal.ws.recobriment.datosespecificos.SVDCCAACPASWS01v3RespuestaDatosEspecificos;
+import es.caib.carpeta.pinbal.ws.recobriment.datosespecificos.SVDDGPCIWS02v3RespuestaDatosEspecificos;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -28,12 +28,12 @@ import org.junit.Test;
  *
  * @author gdeignacio
  */
-public class SVDCCAACPASWS01v3ClientTest {
+public class SVDDGPCIWS02v3ClientTest {
     
     
-    private SVDCCAACPASWS01v3Client client;
+    private SVDDGPCIWS02v3Client client;
     
-    public SVDCCAACPASWS01v3ClientTest() {
+    public SVDDGPCIWS02v3ClientTest() {
     }
     
     @BeforeClass
@@ -54,7 +54,7 @@ public class SVDCCAACPASWS01v3ClientTest {
         System.setProperty(app  + "pinbal.client.password", "carpeta_pinbal");
         System.setProperty(app  + "pinbal.client.baseURL", "https://proves.caib.es/pinbal");
         
-        client = new SVDCCAACPASWS01v3Client(app);
+        client = new SVDDGPCIWS02v3Client(app);
         
         
         
@@ -65,7 +65,7 @@ public class SVDCCAACPASWS01v3ClientTest {
     }
 
     /**
-     * Test of dummy method, of class SVDCCAACPASWS01v3Client.
+     * Test of dummy method, of class AEAT103Iv3Client.
      */
     @Test
     public void testDummy() {
@@ -77,15 +77,14 @@ public class SVDCCAACPASWS01v3ClientTest {
     }
 
     /**
-     * Test of peticionSincrona method, of class SVDCCAACPASWS01v3Client.
+     * Test of peticionSincrona method, of class AEAT103Iv3Client.
      */
     @Test
     public void testPeticionSincrona() {
+        System.out.println("peticionSincrona");
         
-        //System.out.println("peticionSincrona");
-        
-        //RespuestaClientAdapter<SVDCCAACPASWS01v3RespuestaDatosEspecificos> expResult = null;
-        //RespuestaClientAdapter<SVDCCAACPASWS01v3RespuestaDatosEspecificos> result = client.peticionSincrona();
+        RespuestaClientAdapter<SVDDGPCIWS02v3RespuestaDatosEspecificos> expResult = null;
+        RespuestaClientAdapter<SVDDGPCIWS02v3RespuestaDatosEspecificos> result = client.peticionSincrona();
         
         //System.out.println("APELLIDO  " + result.getTransmisionesClient().get(0).getDatosEspecificos().getResultado().getApellido1());
         
@@ -95,14 +94,14 @@ public class SVDCCAACPASWS01v3ClientTest {
     }
 
     /**
-     * Test of main method, of class SVDCCAACPASWS01v3Example.
+     * Test of main method, of class AEAT103Iv3Example.
      */
     /*
     @Test
     public void testMain() throws Exception {
         System.out.println("main");
         String[] args = null;
-        SVDCCAACPASWS01v3Client.main(args);
+        AEAT103Iv3Client.main(args);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
