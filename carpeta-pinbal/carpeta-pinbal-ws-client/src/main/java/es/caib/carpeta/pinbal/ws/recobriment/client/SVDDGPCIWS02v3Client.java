@@ -59,9 +59,9 @@ public class SVDDGPCIWS02v3Client {
     private String unidadTramitadora = "Servei d'escolarització";
 
     //Titular
-    private String apellido1 = "JAUME";
+    private String apellido1; //= "JAUME";
     private String apellido2 = "";
-    private String documentacion = "41107605G";
+    private String documentacion; // = "41107605G";
     private String nombre = "";
     private String nombreCompleto = "";
     private TipoDocumentacion tipoDocumentacion = TipoDocumentacion.DNI;
@@ -102,18 +102,13 @@ public class SVDDGPCIWS02v3Client {
    
     
     
-    public RespuestaClientAdapter<SVDDGPCIWS02v3RespuestaDatosEspecificos> peticionSincrona(){
-        
+    public RespuestaClientAdapter<SVDDGPCIWS02v3RespuestaDatosEspecificos> peticionSincrona(String nif, String llinatge1 ){
+        this.documentacion = nif;
+        this.apellido1 = llinatge1;
         RespuestaClientAdapter<SVDDGPCIWS02v3RespuestaDatosEspecificos> respuestaClient =
             facade.peticionSincrona(codigoEstado, codigoEstadoSecundario, literalError, literalErrorSec, tiempoEstimadoRespuesta, codigoCertificado, idPeticion, numElementos, timeStamp, nifEmisor, nombreEmisor, nifFuncionario, nombreCompletoFuncionario, seudonimo, codProcedimiento, nombreProcedimiento, codigoUnidadTramitadora, consentimiento, finalidad, idExpediente, identificadorSolicitante, nombreSolicitante, unidadTramitadora, apellido1, apellido2, documentacion, nombre, nombreCompleto, tipoDocumentacion, fechaGeneracion, idSolicitud, idTransmision);
         return respuestaClient;
     }
     
     
-    public static void main(String args[]) throws Exception {
-        
-     
-
-    }
-
 }

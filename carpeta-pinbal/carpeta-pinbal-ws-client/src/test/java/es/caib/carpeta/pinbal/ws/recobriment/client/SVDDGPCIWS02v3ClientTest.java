@@ -84,7 +84,9 @@ public class SVDDGPCIWS02v3ClientTest {
         System.out.println("peticionSincrona");
         
         RespuestaClientAdapter<SVDDGPCIWS02v3RespuestaDatosEspecificos> expResult = null;
-        RespuestaClientAdapter<SVDDGPCIWS02v3RespuestaDatosEspecificos> result = client.peticionSincrona();
+        String nif = "41107605G";
+        String llinatge1 = "JAUME";
+        RespuestaClientAdapter<SVDDGPCIWS02v3RespuestaDatosEspecificos> result = client.peticionSincrona(nif, llinatge1);
         
         //System.out.println("APELLIDO  " + result.getTransmisionesClient().get(0).getDatosEspecificos().getResultado().getApellido1());
         
