@@ -49,7 +49,7 @@
             <name>GitHub GovernIB Maven Repository</name>
             <url>http://GovernIB.github.io/maven/maven/</url>
         </repository>
-  
+        
     </repositories>
     <build>
         <pluginManagement>

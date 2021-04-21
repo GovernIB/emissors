@@ -48,8 +48,8 @@ public class NIVRENTIv3ClientTest {
 
         String app = "es.caib.ajuviv.";
         DadesConnexioRecobriment dadesConnexio = new DadesConnexioRecobriment(app);
-        System.setProperty(app + "pinbal.client.username", "$xestib_pinbal");
-        System.setProperty(app + "pinbal.client.password", "xestib_pinbal");
+        System.setProperty(app + "pinbal.client.username", "$ajuviv_pinbal");
+        System.setProperty(app + "pinbal.client.password", "temporal");
         System.setProperty(app + "pinbal.client.baseURL", "https://proves.caib.es/pinbal");
 
         client = new NIVRENTIv3Client(app);
@@ -84,7 +84,8 @@ public class NIVRENTIv3ClientTest {
 
         String testresult = "RESPUESTA  ";
 
-        testresult += result.getTransmisionesClient().get(0).getDatosEspecificos().getIrpf().getNivelRenta().getNRLiteral();
+        testresult += result.getTransmisionesClient().get(0).getIdSolicitud();
+        //testresult += result.getTransmisionesClient().get(0).getDatosEspecificos().getIrpf().getNivelRenta().getNRLiteral();
 
         // + result.getTransmisionesClient().get(0).getDatosEspecificos().getResultado().getApellido1();
         System.out.println(testresult);
