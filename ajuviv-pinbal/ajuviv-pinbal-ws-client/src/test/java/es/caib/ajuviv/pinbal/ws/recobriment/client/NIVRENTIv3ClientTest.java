@@ -23,43 +23,39 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-
+ 
 /**
  *
  * @author gdeignacio
  */
 public class NIVRENTIv3ClientTest {
-    
-    
+
     private NIVRENTIv3Client client;
-    
+
     public NIVRENTIv3ClientTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
-        
-        
+
         String app = "es.caib.ajuviv.";
         DadesConnexioRecobriment dadesConnexio = new DadesConnexioRecobriment(app);
-        System.setProperty(app  + "pinbal.client.username", "$ajuviv_pinbal");
-        System.setProperty(app  + "pinbal.client.password", "ajuviv_pinbal");
-        System.setProperty(app  + "pinbal.client.baseURL", "https://proves.caib.es/pinbal");
-        
+        System.setProperty(app + "pinbal.client.username", "$xestib_pinbal");
+        System.setProperty(app + "pinbal.client.password", "xestib_pinbal");
+        System.setProperty(app + "pinbal.client.baseURL", "https://proves.caib.es/pinbal");
+
         client = new NIVRENTIv3Client(app);
-        
-        
-        
+
     }
-    
+
     @After
     public void tearDown() {
     }
@@ -70,7 +66,7 @@ public class NIVRENTIv3ClientTest {
     @Test
     public void testDummy() {
         System.out.println("dummy");
-        
+
         client.dummy();
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
@@ -81,19 +77,18 @@ public class NIVRENTIv3ClientTest {
      */
     @Test
     public void testPeticionSincrona() {
-        System.out.println("peticionSincrona");
-        
+        System.out.println("peticionSincrona AJUVIV");
+
         RespuestaClientAdapter<NIVRENTIv3RespuestaDatosEspecificos> expResult = null;
         RespuestaClientAdapter<NIVRENTIv3RespuestaDatosEspecificos> result = client.peticionSincrona();
-        
+
         String testresult = "RESPUESTA  ";
-        
-        testresult+= result.getTransmisionesClient().get(0).getDatosEspecificos().getIrpf().getNivelRenta().getNRLiteral();
-        
+
+        testresult += result.getTransmisionesClient().get(0).getDatosEspecificos().getIrpf().getNivelRenta().getNRLiteral();
+
         // + result.getTransmisionesClient().get(0).getDatosEspecificos().getResultado().getApellido1();
-        
         System.out.println(testresult);
-        
+
         //assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
@@ -111,6 +106,5 @@ public class NIVRENTIv3ClientTest {
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
-*/
-    
+     */
 }

@@ -50,8 +50,8 @@ public class SCDHPAJUv3ClientTest {
         
         String app = "es.caib.ajuviv.";
         DadesConnexioRecobriment dadesConnexio = new DadesConnexioRecobriment(app);
-        System.setProperty(app  + "pinbal.client.username", "$xestib_pinbal");
-        System.setProperty(app  + "pinbal.client.password", "xestib_pinbal");
+        System.setProperty(app  + "pinbal.client.username", "$ajuviv_pinbal");
+        System.setProperty(app  + "pinbal.client.password", "temporal");
         System.setProperty(app  + "pinbal.client.baseURL", "https://proves.caib.es/pinbal");
         
          client = new SCDHPAJUv3Client(app);
