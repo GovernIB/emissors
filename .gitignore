@@ -12,7 +12,6 @@ buildNumber.properties
 .settings/
 nb-configuration.xml
 /scsp-pinbal/pinbal-ws-client/nbproject/
-/scsp-pinbal - copia/pinbal-ws-client/nbproject/
-/scsp-pinbal-example/pinbal-ws-client/nbproject/
-/scsp-pinbal-example/pinbal-ws-client-example/nbproject/
 /scsp-commons/utils/nbproject/
+/carpeta-pinbal/carpeta-pinbal-ws-client/bin/nbproject/
+/carpeta-pinbal/carpeta-pinbal-ws-client/nbproject/
