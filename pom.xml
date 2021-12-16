@@ -57,38 +57,13 @@
             </dependency>
             <dependency>
                 <groupId>es.caib.scsp</groupId>
-                <artifactId>scsp-schemas-gen</artifactId>
+                <artifactId>scsp-tools</artifactId>
                 <version>2.0.0</version>
             </dependency>
             <dependency>
-                <groupId>es.caib.emiservbackoffice</groupId>
-                <artifactId>emiservbackoffice-ejb</artifactId>
-                <version>1.0.0</version>
-                <type>ejb</type>
-            </dependency>
-            <dependency>
-                <groupId>es.caib.emiservbackoffice</groupId>
-                <artifactId>emiservbackoffice-back</artifactId>
-                <version>1.0.0</version>
-                <type>war</type>
-            </dependency>
-            <dependency>
-                <groupId>es.caib.emiservbackoffice</groupId>
-                <artifactId>emiservbackoffice-front</artifactId>
-                <version>1.0.0</version>
-                <type>war</type>
-            </dependency>
-            <dependency>
-                <groupId>es.caib.emiservbackoffice</groupId>
-                <artifactId>emiservbackoffice-api-externa</artifactId>
-                <version>1.0.0</version>
-                <type>war</type>
-            </dependency>
-            <dependency>
-                <groupId>es.caib.emiservbackoffice</groupId>
-                <artifactId>emiservbackoffice-api-interna</artifactId>
-                <version>1.0.0</version>
-                <type>war</type>
+                <groupId>es.caib.scsp</groupId>
+                <artifactId>scsp-schemas</artifactId>
+                <version>2.0.0</version>
             </dependency>
             <!-- Definició de les versions de les llibreries, especificacions i eines disponibles dins JBoss -->
             <dependency>
@@ -434,16 +409,9 @@
         </repository>
     </repositories>
     <modules>
-        <module>emiservbackoffice-commons</module>
-        <module>emiservbackoffice-persistence</module>
-        <module>emiservbackoffice-ejb</module>
-        <module>emiservbackoffice-service</module>
-        <module>emiservbackoffice-back</module>
-        <module>emiservbackoffice-front</module>
-        <module>emiservbackoffice-api-interna</module>
-        <module>emiservbackoffice-api-externa</module>
-        <module>emiservbackoffice-ws</module>
-        <module>emiservbackoffice-ear</module>
-        <module>emiservbackoffice-pinbal</module>
+        <module>scsp-commons</module>
+        <module>scsp-pinbal</module>
+        <module>scsp-tools</module>
+        <module>scsp-schemas</module>
     </modules>
 </project>

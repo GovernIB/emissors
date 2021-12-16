@@ -1,155 +1,79 @@
-<project
-    xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>es.caib.scsp</groupId>
+    <parent>
+        <groupId>es.caib.scsp</groupId>
+        <artifactId>scsp-caib</artifactId>
+        <version>2.0.0</version>
+    </parent>
+
     <artifactId>scsp-commons</artifactId>
-    <version>1.0.0
-    </version>
-    <packaging>pom</packaging>
-    <licenses>
-        <license>
-            <name>Apache License, Version 2.0</name>
-            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-            <distribution>repo</distribution>
-        </license>
-    </licenses>
-    <name>SCSP Commons</name>
-    <description>Implementació de SCSP comú</description>
+    <packaging>jar</packaging>
+    <name>SCSP CAIB - COMMONS</name>
+    <description>Mòdul de classes i recursos comuns SCSP CAIB</description>
+
     <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <version.txt.template.file>./scripts/templates/versio.txt.template</version.txt.template.file>
-        <version.txt.file>./versio.txt</version.txt.file>
-        <cxf.version>2.2.12</cxf.version>
-        <global.version>${project.version}</global.version>
+        <!--
+        Si volem emprar el maven.build.timestamp al filtres s'ha de "redefinir" la propietat.
+        Veure: https://issues.apache.org/jira/browse/MASSEMBLY-603
+         -->
+        <project.buildtime>${maven.build.timestamp}</project.buildtime>
+        <slf4j-jdk14.version>1.7.22</slf4j-jdk14.version>
     </properties>
-    <modules>
-        <module>scripts</module>
-        <module>utils</module>
-	<module>scsp-schemas-xsd-NIVRENTIv3-test</module>
-    </modules>
+
     <dependencies>
+        <!-- Especificacions i llibreries proporcionades per JBoss -->
         <dependency>
-            <groupId>log4j</groupId>
-            <artifactId>log4j</artifactId>
-            <version>1.2.14</version>
+            <groupId>org.jboss.spec</groupId>
+            <artifactId>jboss-javaee-8.0</artifactId>
+            <type>pom</type>
             <scope>provided</scope>
         </dependency>
-        <!-- junit -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.microprofile.config</groupId>
+            <artifactId>microprofile-config-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <!-- Altres mòduls del projecte -->
+        <dependency>
+            <artifactId>emiservbackoffice-service</artifactId>
+            <groupId>es.caib.emiservbackoffice</groupId>
+            <scope>provided</scope>
+        </dependency>
+        <!-- Dependències de test -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.8.1</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-jdk14</artifactId>
+            <version>${slf4j-jdk14.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
-    <repositories>
-        <repository>
-            <id>github-governib-maven-repos</id>
-            <name>GitHub GovernIB Maven Repository</name>
-            <url>http://GovernIB.github.io/maven/maven/</url>
-        </repository>
-        
-    </repositories>
+
     <build>
-        <pluginManagement>
-            <plugins>
-                <!--plugin><artifactId>maven-compiler-plugin</artifactId><configuration><source>1.6</source><target>1.6</target></configuration></plugin-->
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-toolchains-plugin</artifactId>
-                    <version>1.1</version>
-                    <executions>
-                        <execution>
-                            <goals>
-                                <goal>toolchain</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                    <configuration>
-                        <toolchains>
-                            <jdk>
-                                <version>1.6</version>
-                                <vendor>sun</vendor>
-                            </jdk>
-                        </toolchains>
-                    </configuration>
-                </plugin>
-            </plugins>
-        </pluginManagement>
+        <finalName>${project.artifactId}</finalName>
+        <resources>
+            <!-- Activam filtre per fer substitucions al fitxer Version.properties -->
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
         <plugins>
+            <!-- Defineix la propietat ${buildNumber} que s'empra al filtrat -->
             <plugin>
-                <groupId>com.google.code.maven-replacer-plugin</groupId>
-                <artifactId>maven-replacer-plugin</artifactId>
-                <version>1.4.0</version>
-                <inherited>false</inherited>
-                <executions>
-                    <execution>
-                        <phase>process-sources</phase>
-                        <goals>
-                            <goal>replace</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <file>${version.txt.template.file}</file>
-                    <outputFile>${version.txt.file}</outputFile>
-                    <replacements>
-                        <replacement>
-                            <token>@project.version@</token>
-                            <value>${project.version}</value>
-                        </replacement>
-                    </replacements>
-                </configuration>
-            </plugin>
-            <plugin>
-                <artifactId>maven-deploy-plugin</artifactId>
-                <version>2.8.1</version>
-                <configuration>
-                    <altDeploymentRepository>
-                        internal.repo::default::file://${project.build.directory}/mvn-repo
-                    </altDeploymentRepository>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>com.github.github</groupId>
-                <artifactId>site-maven-plugin</artifactId>
-                <version>0.12</version>
-                <configuration>
-                    <!-- git commit message -->
-                    <message>Maven artifacts for ${project.version}</message>
-                    <outputDirectory>${project.build.directory}/mvn-repo</outputDirectory>
-                    <noJekyll>true</noJekyll>
-                    <!-- remote branch name -->
-                    <branch>refs/heads/gh-pages</branch>
-                    <includes>
-                        <include>**/*</include>
-                    </includes>
-                    <path>maven</path>
-                    <!-- github repo name -->
-                    <repositoryName>maven</repositoryName>
-                    <!-- github username or organization  -->
-                    <repositoryOwner>governib</repositoryOwner>
-                    <server>github_governib_maven</server>
-                    <merge>true</merge>
-                    <dryRun>false</dryRun>
-                </configuration>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>site</goal>
-                        </goals>
-                        <phase>deploy</phase>
-                    </execution>
-                </executions>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>buildnumber-maven-plugin</artifactId>
             </plugin>
         </plugins>
     </build>
-    <distributionManagement>
-        <repository>
-            <id>github_governib_maven</id>
-            <name>GitHub GovernIB Maven Repository</name>
-            <url>file://${project.build.directory}/mvn-repo</url>
-        </repository>
-    </distributionManagement>
 </project>
