@@ -9,7 +9,7 @@
 
     <artifactId>scsp-commons</artifactId>
     <packaging>jar</packaging>
-    <name>SCSP CAIB - COMMONS</name>
+    <name>ScspCaib - COMMONS</name>
     <description>Mòdul de classes i recursos comuns SCSP CAIB</description>
 
     <properties>
@@ -41,8 +41,8 @@
         </dependency>
         <!-- Altres mòduls del projecte -->
         <dependency>
-            <artifactId>emiservbackoffice-service</artifactId>
-            <groupId>es.caib.emiservbackoffice</groupId>
+            <artifactId>scsp-service</artifactId>
+            <groupId>es.caib.scsp</groupId>
             <scope>provided</scope>
         </dependency>
         <!-- Dependències de test -->
