@@ -32,7 +32,9 @@
         <arquillian.version>1.6.0.Final</arquillian.version>
         <wildfly-arquillian.version>3.0.1.Final</wildfly-arquillian.version>
         <mockito.version>3.5.13</mockito.version>
-        <emiserv.version>2.0.1</emiserv.version>
+        <emiserv.version>2.0.4</emiserv.version>
+        <pinbal.version>2.0.1</pinbal.version>
+        <pluginsib.version>2.0.0</pluginsib.version>
         <!-- Propietats emprades als descriptors en mode Desenvolupament. -->
         <!-- Es poden activar els valors de producció activatn el profile -Pproduccio -->
         <webXml.faces.projectStage>Development</webXml.faces.projectStage>
@@ -44,17 +46,30 @@
     </properties>
     <dependencyManagement>
         <dependencies>
-            <!-- Dependències internes dins el projecte -->
+
+            <!-- Dependències internes -->
+
             <dependency>
+                <groupId>org.fundaciobit.pluginsib.utils</groupId>
+                <artifactId>pluginsib-utils-commons</artifactId>
+                <version>${pluginsib.version}></version>
+            </dependency>
+            <dependency>
+                <groupId>org.fundaciobit.pluginsib.utils</groupId>
+                <artifactId>pluginsib-utils-xml</artifactId>
+                <version>${pluginsib.version}></version>
+            </dependency>
+
+            <!--dependency>
                 <groupId>es.caib.scsp</groupId>
                 <artifactId>scsp-commons</artifactId>
                 <version>2.0.0</version>
-            </dependency>
-            <dependency>
+            </dependency-->
+            <!--dependency>
                 <groupId>es.caib.scsp</groupId>
                 <artifactId>scsp-service</artifactId>
                 <version>2.0.0</version>
-            </dependency>
+            </dependency-->
             <!---
             <dependency>
                 <groupId>es.caib.scsp</groupId>
@@ -417,12 +432,12 @@
         </repository>
     </repositories>
     <modules>
-        <module>scsp-commons</module>
-        <module>scsp-service</module>
-    <!--
-        <module>scsp-pinbal</module>
-        <module>scsp-tools</module>
-        <module>scsp-schemas</module>
-    -->
+        <!--module>scsp-commons</module-->
+        <!--module>scsp-service</module-->
+        <!--
+            <module>scsp-pinbal</module>
+            <module>scsp-tools</module>
+            <module>scsp-schemas</module>
+        -->
     </modules>
 </project>
