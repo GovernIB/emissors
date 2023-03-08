@@ -2,7 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>es.caib.scsp</groupId>
-    <artifactId>scsp-caib</artifactId>
+    <artifactId>scspcaib</artifactId>
     <version>2.0.0</version>
     <packaging>pom</packaging>
     <name>ScspCaib</name>
@@ -43,6 +43,10 @@
         <!-- Es poden sobreescriure passant la propietat al maven amb -D -->
         <webXml.loginConfig.authMethod>KEYCLOAK</webXml.loginConfig.authMethod>
         <webXml.loginConfig.realmName>Govern de les Illes Balears</webXml.loginConfig.realmName>
+
+        <scsp.core.version>4.6.0</scsp.core.version>
+        <scsp.beans.version>4.2.0</scsp.beans.version>
+
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -52,12 +56,12 @@
             <dependency>
                 <groupId>org.fundaciobit.pluginsib.utils</groupId>
                 <artifactId>pluginsib-utils-commons</artifactId>
-                <version>${pluginsib.version}></version>
+                <version>${pluginsib.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.fundaciobit.pluginsib.utils</groupId>
                 <artifactId>pluginsib-utils-xml</artifactId>
-                <version>${pluginsib.version}></version>
+                <version>${pluginsib.version}</version>
             </dependency>
 
             <!--dependency>
@@ -147,11 +151,26 @@
                 <artifactId>mapstruct</artifactId>
                 <version>${mapstruct.version}</version>
             </dependency>
-            <dependency>
+            <!--dependency>
                 <groupId>es.caib.emiserv</groupId>
                 <artifactId>emiserv-service-intf</artifactId>
                 <version>${emiserv.version}</version>
             </dependency>
+            <dependency>
+              <groupId>es.scsp</groupId>
+              <artifactId>scsp-core</artifactId>
+              <version>${scsp.core.version}</version>        
+            </dependency>
+            <dependency>
+               <groupId>es.scsp</groupId>
+                <artifactId>scsp-beans</artifactId>
+                <version>${scsp.beans.version}</version>        
+            </dependency>
+            <dependency>
+                <groupId>org.apache.axis2</groupId>
+                <artifactId>axis2-kernel</artifactId>
+                <version>1.6.4</version>       
+            </dependency-->
             <!-- Dependències emprades als tests -->
             <dependency>
                 <groupId>junit</groupId>
@@ -430,14 +449,20 @@
             <name>GitHub GovernIB Maven Repository</name>
             <url>https://governib.github.io/maven/maven/</url>
         </repository>
+   
+        <repository>
+            <id>mvn-local-repo</id>
+            <url>file://${basedir}/local-repo</url>
+        </repository>
+     
+
     </repositories>
+
     <modules>
-        <!--module>scsp-commons</module-->
-        <!--module>scsp-service</module-->
-        <!--
-            <module>scsp-pinbal</module>
-            <module>scsp-tools</module>
-            <module>scsp-schemas</module>
-        -->
+        <module>scsp-caib-commons</module>
+        <module>scsp-caib-backoffice</module>
+        <module>SCDCPAJUv3-schemas-xsd</module>
+        <module>SCDHPAJUv3-schemas-xsd</module>
+        <module>SVDSCTFNWS01v3-schemas-xsd</module>
     </modules>
 </project>
